@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamesView", "GamesView.csproj", "{96C9D135-5E17-44D6-B98D-573F2A81ABAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96C9D135-5E17-44D6-B98D-573F2A81ABAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C9D135-5E17-44D6-B98D-573F2A81ABAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C9D135-5E17-44D6-B98D-573F2A81ABAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C9D135-5E17-44D6-B98D-573F2A81ABAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7372C62D-FFB2-42A4-B01D-6DD160D5CE32}
+	EndGlobalSection
+EndGlobal
