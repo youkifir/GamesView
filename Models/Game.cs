@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GamesView.Models
 {
-    internal class Game
+    public class Game
     {
+        public int GameId { get; set; }
+        public string? Name { get; set; }
     }
 }
