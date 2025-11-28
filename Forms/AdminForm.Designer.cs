@@ -58,10 +58,13 @@
             label6 = new Label();
             label7 = new Label();
             pictureBox3 = new PictureBox();
+            label10 = new Label();
+            label11 = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panelProfileHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureAvatar).BeginInit();
+            panelAccountInfo.SuspendLayout();
             panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -224,6 +227,8 @@
             // panelAccountInfo
             // 
             panelAccountInfo.BackColor = Color.FromArgb(35, 35, 35);
+            panelAccountInfo.Controls.Add(label11);
+            panelAccountInfo.Controls.Add(label10);
             panelAccountInfo.Dock = DockStyle.Top;
             panelAccountInfo.Location = new Point(0, 280);
             panelAccountInfo.Name = "panelAccountInfo";
@@ -286,7 +291,6 @@
             label3.Size = new Size(234, 20);
             label3.TabIndex = 2;
             label3.Text = "Востаннє зіграно 2 години тому";
-            
             // 
             // label2
             // 
@@ -342,9 +346,8 @@
             label4.ForeColor = Color.FromArgb(224, 224, 224);
             label4.Location = new Point(1509, 117);
             label4.Name = "label4";
-            label4.Size = new Size(234, 20);
+            label4.Size = new Size(0, 20);
             label4.TabIndex = 2;
-            
             // 
             // label5
             // 
@@ -400,9 +403,8 @@
             label6.ForeColor = Color.FromArgb(224, 224, 224);
             label6.Location = new Point(1509, 117);
             label6.Name = "label6";
-            label6.Size = new Size(234, 20);
+            label6.Size = new Size(0, 20);
             label6.TabIndex = 2;
-            
             // 
             // label7
             // 
@@ -428,6 +430,28 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(12, 13);
+            label10.Name = "label10";
+            label10.Size = new Size(249, 22);
+            label10.TabIndex = 0;
+            label10.Text = "Дата реєстрації : 05.11.2025";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(13, 48);
+            label11.Name = "label11";
+            label11.Size = new Size(181, 22);
+            label11.TabIndex = 1;
+            label11.Text = "Ігри у бібліотеці : 12\r\n";
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -446,6 +470,8 @@
             panelProfileHeader.ResumeLayout(false);
             panelProfileHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureAvatar).EndInit();
+            panelAccountInfo.ResumeLayout(false);
+            panelAccountInfo.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
@@ -492,5 +518,7 @@
         private Label label6;
         private Label label7;
         private PictureBox pictureBox3;
+        private Label label10;
+        private Label label11;
     }
 }
