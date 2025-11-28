@@ -16,5 +16,23 @@ namespace GamesView.Forms
         {
             InitializeComponent();
         }
+
+        private void pictureAvatar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            foreach (Panel p in flowLayoutPanel1.Controls)
+                p.Width = flowLayoutPanel1.Width - 20;
+        }
+
+        
     }
 }

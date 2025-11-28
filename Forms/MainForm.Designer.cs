@@ -36,17 +36,17 @@
             btnFavorite = new Button();
             btnLibrary = new Button();
             panel2 = new Panel();
-            PanelBanner = new Panel();
-            PictureBox = new PictureBox();
+            FlowLayoutPanelRecommendations = new FlowLayoutPanel();
             PanelNews = new Panel();
             flowNews = new FlowLayoutPanel();
-            FlowLayoutPanelRecommendations = new FlowLayoutPanel();
+            PanelBanner = new Panel();
+            PictureBox = new PictureBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
+            PanelNews.SuspendLayout();
             PanelBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBox).BeginInit();
-            PanelNews.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -170,27 +170,17 @@
             panel2.Size = new Size(1000, 884);
             panel2.TabIndex = 1;
             // 
-            // PanelBanner
+            // FlowLayoutPanelRecommendations
             // 
-            PanelBanner.BackColor = Color.FromArgb(39, 39, 39);
-            PanelBanner.BackgroundImageLayout = ImageLayout.Stretch;
-            PanelBanner.Controls.Add(PictureBox);
-            PanelBanner.Dock = DockStyle.Top;
-            PanelBanner.Location = new Point(0, 0);
-            PanelBanner.Name = "PanelBanner";
-            PanelBanner.Size = new Size(1000, 250);
-            PanelBanner.TabIndex = 0;
-            PanelBanner.Paint += PanelBanner_Paint;
-            // 
-            // PictureBox
-            // 
-            PictureBox.Dock = DockStyle.Fill;
-            PictureBox.Location = new Point(0, 0);
-            PictureBox.Name = "PictureBox";
-            PictureBox.Size = new Size(1000, 250);
-            PictureBox.TabIndex = 0;
-            PictureBox.TabStop = false;
-            PictureBox.Click += PictureBox_Click;
+            FlowLayoutPanelRecommendations.AutoScroll = true;
+            FlowLayoutPanelRecommendations.Dock = DockStyle.Fill;
+            FlowLayoutPanelRecommendations.FlowDirection = FlowDirection.TopDown;
+            FlowLayoutPanelRecommendations.Location = new Point(0, 550);
+            FlowLayoutPanelRecommendations.Name = "FlowLayoutPanelRecommendations";
+            FlowLayoutPanelRecommendations.Padding = new Padding(10);
+            FlowLayoutPanelRecommendations.Size = new Size(1000, 334);
+            FlowLayoutPanelRecommendations.TabIndex = 2;
+            FlowLayoutPanelRecommendations.Paint += FlowLayoutPanelRecommendations_Paint;
             // 
             // PanelNews
             // 
@@ -215,17 +205,27 @@
             flowNews.WrapContents = false;
             flowNews.Paint += flowNews_Paint;
             // 
-            // FlowLayoutPanelRecommendations
+            // PanelBanner
             // 
-            FlowLayoutPanelRecommendations.AutoScroll = true;
-            FlowLayoutPanelRecommendations.Dock = DockStyle.Fill;
-            FlowLayoutPanelRecommendations.FlowDirection = FlowDirection.TopDown;
-            FlowLayoutPanelRecommendations.Location = new Point(0, 550);
-            FlowLayoutPanelRecommendations.Name = "FlowLayoutPanelRecommendations";
-            FlowLayoutPanelRecommendations.Padding = new Padding(10);
-            FlowLayoutPanelRecommendations.Size = new Size(1000, 334);
-            FlowLayoutPanelRecommendations.TabIndex = 2;
-            FlowLayoutPanelRecommendations.Paint += FlowLayoutPanelRecommendations_Paint;
+            PanelBanner.BackColor = Color.FromArgb(39, 39, 39);
+            PanelBanner.BackgroundImageLayout = ImageLayout.Stretch;
+            PanelBanner.Controls.Add(PictureBox);
+            PanelBanner.Dock = DockStyle.Top;
+            PanelBanner.Location = new Point(0, 0);
+            PanelBanner.Name = "PanelBanner";
+            PanelBanner.Size = new Size(1000, 250);
+            PanelBanner.TabIndex = 0;
+            PanelBanner.Paint += PanelBanner_Paint;
+            // 
+            // PictureBox
+            // 
+            PictureBox.Dock = DockStyle.Fill;
+            PictureBox.Location = new Point(0, 0);
+            PictureBox.Name = "PictureBox";
+            PictureBox.Size = new Size(1000, 250);
+            PictureBox.TabIndex = 0;
+            PictureBox.TabStop = false;
+            PictureBox.Click += PictureBox_Click;
             // 
             // MainForm
             // 
@@ -240,9 +240,9 @@
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            PanelNews.ResumeLayout(false);
             PanelBanner.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PictureBox).EndInit();
-            PanelNews.ResumeLayout(false);
             ResumeLayout(false);
         }
 
