@@ -37,10 +37,13 @@
             btnFavorite = new Button();
             btnLibrary = new Button();
             panelProfileHeader = new Panel();
+            btnSetting = new Button();
             labelEmail = new Label();
             labelUsername = new Label();
             pictureAvatar = new PictureBox();
             panelAccountInfo = new Panel();
+            label11 = new Label();
+            label10 = new Label();
             panel2 = new Panel();
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -58,8 +61,6 @@
             label6 = new Label();
             label7 = new Label();
             pictureBox3 = new PictureBox();
-            label10 = new Label();
-            label11 = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panelProfileHeader.SuspendLayout();
@@ -119,6 +120,7 @@
             btnProfile.TabIndex = 4;
             btnProfile.Text = "Профіль";
             btnProfile.UseVisualStyleBackColor = true;
+            btnProfile.Click += btnProfile_Click;
             // 
             // btnNews
             // 
@@ -134,6 +136,7 @@
             btnNews.TabIndex = 3;
             btnNews.Text = "Новини";
             btnNews.UseVisualStyleBackColor = true;
+            btnNews.Click += btnNews_Click;
             // 
             // btnReview
             // 
@@ -149,6 +152,7 @@
             btnReview.TabIndex = 2;
             btnReview.Text = "Відгуки";
             btnReview.UseVisualStyleBackColor = true;
+            btnReview.Click += btnReview_Click;
             // 
             // btnFavorite
             // 
@@ -164,6 +168,7 @@
             btnFavorite.TabIndex = 1;
             btnFavorite.Text = "Улюблені ігри";
             btnFavorite.UseVisualStyleBackColor = true;
+            btnFavorite.Click += btnFavorite_Click;
             // 
             // btnLibrary
             // 
@@ -179,10 +184,13 @@
             btnLibrary.TabIndex = 0;
             btnLibrary.Text = "Бібліотека";
             btnLibrary.UseVisualStyleBackColor = true;
+            btnLibrary.Click += btnLibrary_Click;
             // 
             // panelProfileHeader
             // 
             panelProfileHeader.BackColor = Color.FromArgb(45, 45, 45);
+            panelProfileHeader.BackgroundImageLayout = ImageLayout.Zoom;
+            panelProfileHeader.Controls.Add(btnSetting);
             panelProfileHeader.Controls.Add(labelEmail);
             panelProfileHeader.Controls.Add(labelUsername);
             panelProfileHeader.Controls.Add(pictureAvatar);
@@ -191,6 +199,23 @@
             panelProfileHeader.Name = "panelProfileHeader";
             panelProfileHeader.Size = new Size(1568, 220);
             panelProfileHeader.TabIndex = 1;
+            // 
+            // btnSetting
+            // 
+            btnSetting.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSetting.BackColor = Color.FromArgb(45, 45, 45);
+            btnSetting.BackgroundImage = (Image)resources.GetObject("btnSetting.BackgroundImage");
+            btnSetting.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSetting.FlatAppearance.BorderSize = 0;
+            btnSetting.FlatStyle = FlatStyle.Flat;
+            btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
+            btnSetting.Location = new Point(1505, 6);
+            btnSetting.Name = "btnSetting";
+            btnSetting.Size = new Size(42, 41);
+            btnSetting.TabIndex = 3;
+            btnSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSetting.UseVisualStyleBackColor = false;
+            btnSetting.Click += btnSetting_Click;
             // 
             // labelEmail
             // 
@@ -234,6 +259,28 @@
             panelAccountInfo.Name = "panelAccountInfo";
             panelAccountInfo.Size = new Size(1568, 180);
             panelAccountInfo.TabIndex = 2;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(13, 48);
+            label11.Name = "label11";
+            label11.Size = new Size(181, 22);
+            label11.TabIndex = 1;
+            label11.Text = "Ігри у бібліотеці : 12\r\n";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(12, 13);
+            label10.Name = "label10";
+            label10.Size = new Size(249, 22);
+            label10.TabIndex = 0;
+            label10.Text = "Дата реєстрації : 05.11.2025";
             // 
             // panel2
             // 
@@ -430,28 +477,6 @@
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(12, 13);
-            label10.Name = "label10";
-            label10.Size = new Size(249, 22);
-            label10.TabIndex = 0;
-            label10.Text = "Дата реєстрації : 05.11.2025";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(13, 48);
-            label11.Name = "label11";
-            label11.Size = new Size(181, 22);
-            label11.TabIndex = 1;
-            label11.Text = "Ігри у бібліотеці : 12\r\n";
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -520,5 +545,6 @@
         private PictureBox pictureBox3;
         private Label label10;
         private Label label11;
+        private Button btnSetting;
     }
 }
