@@ -1,3 +1,5 @@
+using GamesView.Forms;
+
 namespace GamesView
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace GamesView
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormLogin());
+            Application.Run(new AdminForm());
         }
     }
 }

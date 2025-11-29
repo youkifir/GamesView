@@ -16,5 +16,30 @@ namespace GamesView.Forms
         {
             InitializeComponent();
         }
+
+        private void textBoxLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxRePass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabelLog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }
