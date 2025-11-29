@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GamesView.Models
+﻿namespace GamesView.Models
 {
-    internal class Review
+    public class Review
     {
+        public int ReviewId { get; set; }
+        public int UserId { get; set; }
+        public int GameId { get; set; }
+        public string Text { get; set; }
+        public int? Rating { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        public User User { get; set; }
+        public Game Game { get; set; }
     }
 }
