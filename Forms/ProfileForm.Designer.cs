@@ -37,6 +37,7 @@
             btnFavorite = new Button();
             btnLibrary = new Button();
             panelProfileHeader = new Panel();
+            button1 = new Button();
             labelEmail = new Label();
             labelUsername = new Label();
             pictureAvatar = new PictureBox();
@@ -81,7 +82,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1568, 60);
+            panel1.Size = new Size(1563, 60);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -102,7 +103,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1568, 60);
+            tableLayoutPanel1.Size = new Size(1563, 60);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // btnProfile
@@ -111,11 +112,11 @@
             btnProfile.FlatAppearance.BorderColor = Color.FromArgb(63, 81, 181);
             btnProfile.FlatAppearance.MouseOverBackColor = Color.Red;
             btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnProfile.ForeColor = Color.WhiteSmoke;
-            btnProfile.Location = new Point(1255, 3);
+            btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            btnProfile.ForeColor = SystemColors.Highlight;
+            btnProfile.Location = new Point(1251, 3);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(310, 54);
+            btnProfile.Size = new Size(309, 54);
             btnProfile.TabIndex = 4;
             btnProfile.Text = "Профіль";
             btnProfile.UseVisualStyleBackColor = true;
@@ -129,9 +130,9 @@
             btnNews.FlatStyle = FlatStyle.Flat;
             btnNews.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnNews.ForeColor = Color.WhiteSmoke;
-            btnNews.Location = new Point(942, 3);
+            btnNews.Location = new Point(939, 3);
             btnNews.Name = "btnNews";
-            btnNews.Size = new Size(307, 54);
+            btnNews.Size = new Size(306, 54);
             btnNews.TabIndex = 3;
             btnNews.Text = "Новини";
             btnNews.UseVisualStyleBackColor = true;
@@ -145,9 +146,9 @@
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnReview.ForeColor = Color.WhiteSmoke;
-            btnReview.Location = new Point(629, 3);
+            btnReview.Location = new Point(627, 3);
             btnReview.Name = "btnReview";
-            btnReview.Size = new Size(307, 54);
+            btnReview.Size = new Size(306, 54);
             btnReview.TabIndex = 2;
             btnReview.Text = "Відгуки";
             btnReview.UseVisualStyleBackColor = true;
@@ -161,9 +162,9 @@
             btnFavorite.FlatStyle = FlatStyle.Flat;
             btnFavorite.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnFavorite.ForeColor = Color.WhiteSmoke;
-            btnFavorite.Location = new Point(316, 3);
+            btnFavorite.Location = new Point(315, 3);
             btnFavorite.Name = "btnFavorite";
-            btnFavorite.Size = new Size(307, 54);
+            btnFavorite.Size = new Size(306, 54);
             btnFavorite.TabIndex = 1;
             btnFavorite.Text = "Улюблені ігри";
             btnFavorite.UseVisualStyleBackColor = true;
@@ -179,7 +180,7 @@
             btnLibrary.ForeColor = Color.WhiteSmoke;
             btnLibrary.Location = new Point(3, 3);
             btnLibrary.Name = "btnLibrary";
-            btnLibrary.Size = new Size(307, 54);
+            btnLibrary.Size = new Size(306, 54);
             btnLibrary.TabIndex = 0;
             btnLibrary.Text = "Бібліотека";
             btnLibrary.UseVisualStyleBackColor = true;
@@ -189,14 +190,28 @@
             // 
             panelProfileHeader.BackColor = Color.FromArgb(45, 45, 45);
             panelProfileHeader.BackgroundImageLayout = ImageLayout.Zoom;
+            panelProfileHeader.Controls.Add(button1);
             panelProfileHeader.Controls.Add(labelEmail);
             panelProfileHeader.Controls.Add(labelUsername);
             panelProfileHeader.Controls.Add(pictureAvatar);
             panelProfileHeader.Dock = DockStyle.Top;
+            panelProfileHeader.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panelProfileHeader.Location = new Point(0, 60);
             panelProfileHeader.Name = "panelProfileHeader";
-            panelProfileHeader.Size = new Size(1568, 220);
+            panelProfileHeader.Size = new Size(1563, 220);
             panelProfileHeader.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.Pink;
+            button1.Location = new Point(1392, 172);
+            button1.Name = "button1";
+            button1.Size = new Size(159, 42);
+            button1.TabIndex = 3;
+            button1.Text = "Адмін панель";
+            button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
             // 
             // labelEmail
             // 
@@ -238,7 +253,7 @@
             panelAccountInfo.Dock = DockStyle.Top;
             panelAccountInfo.Location = new Point(0, 280);
             panelAccountInfo.Name = "panelAccountInfo";
-            panelAccountInfo.Size = new Size(1568, 180);
+            panelAccountInfo.Size = new Size(1563, 180);
             panelAccountInfo.TabIndex = 2;
             // 
             // label11
@@ -248,9 +263,9 @@
             label11.ForeColor = Color.White;
             label11.Location = new Point(13, 48);
             label11.Name = "label11";
-            label11.Size = new Size(181, 22);
+            label11.Size = new Size(174, 44);
             label11.TabIndex = 1;
-            label11.Text = "Ігри у бібліотеці : 12\r\n";
+            label11.Text = "Ігри у бібліотеці : 6\r\n\r\n";
             // 
             // label10
             // 
@@ -269,7 +284,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 460);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1568, 50);
+            panel2.Size = new Size(1563, 50);
             panel2.TabIndex = 3;
             // 
             // label1
@@ -279,9 +294,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(12, 3);
             label1.Name = "label1";
-            label1.Size = new Size(302, 41);
+            label1.Size = new Size(304, 41);
             label1.TabIndex = 0;
-            label1.Text = "Останні зіграні ігри";
+            label1.Text = "Останні додані ігри";
             // 
             // flowLayoutPanel1
             // 
@@ -293,7 +308,7 @@
             flowLayoutPanel1.Location = new Point(0, 510);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(10);
-            flowLayoutPanel1.Size = new Size(1568, 665);
+            flowLayoutPanel1.Size = new Size(1563, 665);
             flowLayoutPanel1.TabIndex = 4;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -314,11 +329,11 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(224, 224, 224);
-            label3.Location = new Point(734, 117);
+            label3.Location = new Point(799, 122);
             label3.Name = "label3";
-            label3.Size = new Size(234, 20);
+            label3.Size = new Size(169, 20);
             label3.TabIndex = 2;
-            label3.Text = "Востаннє зіграно 2 години тому";
+            label3.Text = "Додано 2 години тому\r\n";
             // 
             // label2
             // 
@@ -360,11 +375,11 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(224, 224, 224);
-            label8.Location = new Point(775, 122);
+            label8.Location = new Point(840, 122);
             label8.Name = "label8";
-            label8.Size = new Size(193, 20);
+            label8.Size = new Size(128, 20);
             label8.TabIndex = 3;
-            label8.Text = "Востаннє зіграно 2 Грудня\r\n";
+            label8.Text = "Додано 2 Грудня";
             // 
             // label4
             // 
@@ -413,15 +428,14 @@
             // 
             // label9
             // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(224, 224, 224);
-            label9.Location = new Point(762, 122);
+            label9.Location = new Point(827, 122);
             label9.Name = "label9";
-            label9.Size = new Size(206, 20);
+            label9.Size = new Size(141, 20);
             label9.TabIndex = 3;
-            label9.Text = "Востаннє зіграно 28 Лютого";
+            label9.Text = "Додано 28 Лютого";
             // 
             // label6
             // 
@@ -463,7 +477,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1568, 1175);
+            ClientSize = new Size(1563, 1175);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel2);
             Controls.Add(panelAccountInfo);
@@ -526,5 +540,6 @@
         private PictureBox pictureBox3;
         private Label label10;
         private Label label11;
+        private Button button1;
     }
 }
