@@ -54,8 +54,9 @@
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1000, 60);
+            panel1.Size = new Size(875, 45);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -73,10 +74,11 @@
             tableLayoutPanel1.Controls.Add(btnLibrary, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1000, 60);
+            tableLayoutPanel1.Size = new Size(875, 45);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnProfile
@@ -87,9 +89,10 @@
             btnProfile.FlatStyle = FlatStyle.Flat;
             btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnProfile.ForeColor = Color.WhiteSmoke;
-            btnProfile.Location = new Point(803, 3);
+            btnProfile.Location = new Point(703, 2);
+            btnProfile.Margin = new Padding(3, 2, 3, 2);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(194, 54);
+            btnProfile.Size = new Size(169, 41);
             btnProfile.TabIndex = 4;
             btnProfile.Text = "Профіль";
             btnProfile.UseVisualStyleBackColor = true;
@@ -103,9 +106,10 @@
             btnNews.FlatStyle = FlatStyle.Flat;
             btnNews.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnNews.ForeColor = Color.WhiteSmoke;
-            btnNews.Location = new Point(603, 3);
+            btnNews.Location = new Point(528, 2);
+            btnNews.Margin = new Padding(3, 2, 3, 2);
             btnNews.Name = "btnNews";
-            btnNews.Size = new Size(194, 54);
+            btnNews.Size = new Size(169, 41);
             btnNews.TabIndex = 3;
             btnNews.Text = "Новини";
             btnNews.UseVisualStyleBackColor = true;
@@ -119,9 +123,10 @@
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnReview.ForeColor = Color.WhiteSmoke;
-            btnReview.Location = new Point(403, 3);
+            btnReview.Location = new Point(353, 2);
+            btnReview.Margin = new Padding(3, 2, 3, 2);
             btnReview.Name = "btnReview";
-            btnReview.Size = new Size(194, 54);
+            btnReview.Size = new Size(169, 41);
             btnReview.TabIndex = 2;
             btnReview.Text = "Відгуки";
             btnReview.UseVisualStyleBackColor = true;
@@ -135,9 +140,10 @@
             btnFavorite.FlatStyle = FlatStyle.Flat;
             btnFavorite.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnFavorite.ForeColor = Color.WhiteSmoke;
-            btnFavorite.Location = new Point(203, 3);
+            btnFavorite.Location = new Point(178, 2);
+            btnFavorite.Margin = new Padding(3, 2, 3, 2);
             btnFavorite.Name = "btnFavorite";
-            btnFavorite.Size = new Size(194, 54);
+            btnFavorite.Size = new Size(169, 41);
             btnFavorite.TabIndex = 1;
             btnFavorite.Text = "Улюблені ігри";
             btnFavorite.UseVisualStyleBackColor = true;
@@ -151,9 +157,10 @@
             btnLibrary.FlatStyle = FlatStyle.Flat;
             btnLibrary.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnLibrary.ForeColor = Color.WhiteSmoke;
-            btnLibrary.Location = new Point(3, 3);
+            btnLibrary.Location = new Point(3, 2);
+            btnLibrary.Margin = new Padding(3, 2, 3, 2);
             btnLibrary.Name = "btnLibrary";
-            btnLibrary.Size = new Size(194, 54);
+            btnLibrary.Size = new Size(169, 41);
             btnLibrary.TabIndex = 0;
             btnLibrary.Text = "Бібліотека";
             btnLibrary.UseVisualStyleBackColor = true;
@@ -165,9 +172,10 @@
             panel2.Controls.Add(PanelNews);
             panel2.Controls.Add(PanelBanner);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 60);
+            panel2.Location = new Point(0, 45);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1000, 884);
+            panel2.Size = new Size(875, 663);
             panel2.TabIndex = 1;
             // 
             // FlowLayoutPanelRecommendations
@@ -175,10 +183,11 @@
             FlowLayoutPanelRecommendations.AutoScroll = true;
             FlowLayoutPanelRecommendations.Dock = DockStyle.Fill;
             FlowLayoutPanelRecommendations.FlowDirection = FlowDirection.TopDown;
-            FlowLayoutPanelRecommendations.Location = new Point(0, 550);
+            FlowLayoutPanelRecommendations.Location = new Point(0, 413);
+            FlowLayoutPanelRecommendations.Margin = new Padding(3, 2, 3, 2);
             FlowLayoutPanelRecommendations.Name = "FlowLayoutPanelRecommendations";
-            FlowLayoutPanelRecommendations.Padding = new Padding(10);
-            FlowLayoutPanelRecommendations.Size = new Size(1000, 334);
+            FlowLayoutPanelRecommendations.Padding = new Padding(9, 8, 9, 8);
+            FlowLayoutPanelRecommendations.Size = new Size(875, 250);
             FlowLayoutPanelRecommendations.TabIndex = 2;
             FlowLayoutPanelRecommendations.Paint += FlowLayoutPanelRecommendations_Paint;
             // 
@@ -186,10 +195,11 @@
             // 
             PanelNews.Controls.Add(flowNews);
             PanelNews.Dock = DockStyle.Top;
-            PanelNews.Location = new Point(0, 250);
+            PanelNews.Location = new Point(0, 188);
+            PanelNews.Margin = new Padding(3, 2, 3, 2);
             PanelNews.Name = "PanelNews";
-            PanelNews.Padding = new Padding(10);
-            PanelNews.Size = new Size(1000, 300);
+            PanelNews.Padding = new Padding(9, 8, 9, 8);
+            PanelNews.Size = new Size(875, 225);
             PanelNews.TabIndex = 1;
             PanelNews.Paint += PanelNews_Paint;
             // 
@@ -198,9 +208,10 @@
             flowNews.AutoScroll = true;
             flowNews.Dock = DockStyle.Fill;
             flowNews.FlowDirection = FlowDirection.TopDown;
-            flowNews.Location = new Point(10, 10);
+            flowNews.Location = new Point(9, 8);
+            flowNews.Margin = new Padding(3, 2, 3, 2);
             flowNews.Name = "flowNews";
-            flowNews.Size = new Size(980, 280);
+            flowNews.Size = new Size(857, 209);
             flowNews.TabIndex = 0;
             flowNews.WrapContents = false;
             flowNews.Paint += flowNews_Paint;
@@ -212,8 +223,9 @@
             PanelBanner.Controls.Add(PictureBox);
             PanelBanner.Dock = DockStyle.Top;
             PanelBanner.Location = new Point(0, 0);
+            PanelBanner.Margin = new Padding(3, 2, 3, 2);
             PanelBanner.Name = "PanelBanner";
-            PanelBanner.Size = new Size(1000, 250);
+            PanelBanner.Size = new Size(875, 188);
             PanelBanner.TabIndex = 0;
             PanelBanner.Paint += PanelBanner_Paint;
             // 
@@ -221,21 +233,24 @@
             // 
             PictureBox.Dock = DockStyle.Fill;
             PictureBox.Location = new Point(0, 0);
+            PictureBox.Margin = new Padding(3, 2, 3, 2);
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new Size(1000, 250);
+            PictureBox.Size = new Size(875, 188);
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             PictureBox.Click += PictureBox_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1000, 944);
+            ClientSize = new Size(875, 708);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
+            StartPosition = FormStartPosition.Manual;
             Text = "MainForm";
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);

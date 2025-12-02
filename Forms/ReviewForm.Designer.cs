@@ -107,8 +107,9 @@
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1384, 60);
+            panel1.Size = new Size(1211, 45);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -126,10 +127,11 @@
             tableLayoutPanel1.Controls.Add(btnLibrary, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1384, 60);
+            tableLayoutPanel1.Size = new Size(1211, 45);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // btnProfile
@@ -140,12 +142,14 @@
             btnProfile.FlatStyle = FlatStyle.Flat;
             btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnProfile.ForeColor = Color.WhiteSmoke;
-            btnProfile.Location = new Point(1107, 3);
+            btnProfile.Location = new Point(971, 2);
+            btnProfile.Margin = new Padding(3, 2, 3, 2);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(274, 54);
+            btnProfile.Size = new Size(237, 41);
             btnProfile.TabIndex = 4;
             btnProfile.Text = "Профіль";
             btnProfile.UseVisualStyleBackColor = true;
+            btnProfile.Click += btnProfile_Click;
             // 
             // btnNews
             // 
@@ -155,12 +159,14 @@
             btnNews.FlatStyle = FlatStyle.Flat;
             btnNews.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnNews.ForeColor = Color.WhiteSmoke;
-            btnNews.Location = new Point(831, 3);
+            btnNews.Location = new Point(729, 2);
+            btnNews.Margin = new Padding(3, 2, 3, 2);
             btnNews.Name = "btnNews";
-            btnNews.Size = new Size(270, 54);
+            btnNews.Size = new Size(236, 41);
             btnNews.TabIndex = 3;
             btnNews.Text = "Новини";
             btnNews.UseVisualStyleBackColor = true;
+            btnNews.Click += btnNews_Click;
             // 
             // btnReview
             // 
@@ -170,12 +176,14 @@
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
             btnReview.ForeColor = SystemColors.Highlight;
-            btnReview.Location = new Point(555, 3);
+            btnReview.Location = new Point(487, 2);
+            btnReview.Margin = new Padding(3, 2, 3, 2);
             btnReview.Name = "btnReview";
-            btnReview.Size = new Size(270, 54);
+            btnReview.Size = new Size(236, 41);
             btnReview.TabIndex = 2;
             btnReview.Text = "Відгуки";
             btnReview.UseVisualStyleBackColor = true;
+            btnReview.Click += btnReview_Click;
             // 
             // btnFavorite
             // 
@@ -185,12 +193,14 @@
             btnFavorite.FlatStyle = FlatStyle.Flat;
             btnFavorite.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnFavorite.ForeColor = Color.WhiteSmoke;
-            btnFavorite.Location = new Point(279, 3);
+            btnFavorite.Location = new Point(245, 2);
+            btnFavorite.Margin = new Padding(3, 2, 3, 2);
             btnFavorite.Name = "btnFavorite";
-            btnFavorite.Size = new Size(270, 54);
+            btnFavorite.Size = new Size(236, 41);
             btnFavorite.TabIndex = 1;
             btnFavorite.Text = "Улюблені ігри";
             btnFavorite.UseVisualStyleBackColor = true;
+            btnFavorite.Click += btnFavorite_Click;
             // 
             // btnLibrary
             // 
@@ -200,12 +210,14 @@
             btnLibrary.FlatStyle = FlatStyle.Flat;
             btnLibrary.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnLibrary.ForeColor = Color.WhiteSmoke;
-            btnLibrary.Location = new Point(3, 3);
+            btnLibrary.Location = new Point(3, 2);
+            btnLibrary.Margin = new Padding(3, 2, 3, 2);
             btnLibrary.Name = "btnLibrary";
-            btnLibrary.Size = new Size(270, 54);
+            btnLibrary.Size = new Size(236, 41);
             btnLibrary.TabIndex = 0;
             btnLibrary.Text = "Бібліотека";
             btnLibrary.UseVisualStyleBackColor = true;
+            btnLibrary.Click += btnLibrary_Click;
             // 
             // panel2
             // 
@@ -214,11 +226,11 @@
             panel2.Controls.Add(panel7);
             panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 60);
-            panel2.Margin = new Padding(10);
+            panel2.Location = new Point(0, 45);
+            panel2.Margin = new Padding(9, 8, 9, 8);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(10);
-            panel2.Size = new Size(1384, 917);
+            panel2.Padding = new Padding(9, 8, 9, 8);
+            panel2.Size = new Size(1211, 688);
             panel2.TabIndex = 1;
             // 
             // panel11
@@ -230,11 +242,11 @@
             panel11.Controls.Add(panel12);
             panel11.Controls.Add(label30);
             panel11.Controls.Add(pictureBox3);
-            panel11.Location = new Point(10, 876);
-            panel11.Margin = new Padding(10);
+            panel11.Location = new Point(9, 657);
+            panel11.Margin = new Padding(9, 8, 9, 8);
             panel11.Name = "panel11";
-            panel11.Padding = new Padding(10);
-            panel11.Size = new Size(1238, 413);
+            panel11.Padding = new Padding(9, 8, 9, 8);
+            panel11.Size = new Size(998, 310);
             panel11.TabIndex = 2;
             // 
             // panel14
@@ -244,9 +256,10 @@
             panel14.Controls.Add(label27);
             panel14.Controls.Add(label28);
             panel14.Controls.Add(label29);
-            panel14.Location = new Point(429, 297);
+            panel14.Location = new Point(375, 223);
+            panel14.Margin = new Padding(3, 2, 3, 2);
             panel14.Name = "panel14";
-            panel14.Size = new Size(796, 103);
+            panel14.Size = new Size(611, 77);
             panel14.TabIndex = 7;
             // 
             // label27
@@ -255,9 +268,9 @@
             label27.Dock = DockStyle.Right;
             label27.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label27.ForeColor = Color.Yellow;
-            label27.Location = new Point(659, 0);
+            label27.Location = new Point(503, 0);
             label27.Name = "label27";
-            label27.Size = new Size(137, 38);
+            label27.Size = new Size(108, 30);
             label27.TabIndex = 2;
             label27.Text = "★★★★☆";
             // 
@@ -266,9 +279,9 @@
             label28.AutoSize = true;
             label28.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label28.ForeColor = Color.FromArgb(224, 224, 224);
-            label28.Location = new Point(7, 33);
+            label28.Location = new Point(6, 25);
             label28.Name = "label28";
-            label28.Size = new Size(767, 40);
+            label28.Size = new Size(605, 30);
             label28.TabIndex = 1;
             label28.Text = "Outlast 2 — неймовірно страшна гра! Атмосфера тримає в напрузі від початку до кінця, сюжет захоплює,\r\nа моторошні моменти просто змушують серце битися швидше. Рекомендую всім шанувальникам хорору!";
             // 
@@ -277,9 +290,9 @@
             label29.AutoSize = true;
             label29.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label29.ForeColor = Color.White;
-            label29.Location = new Point(3, 10);
+            label29.Location = new Point(3, 8);
             label29.Name = "label29";
-            label29.Size = new Size(106, 20);
+            label29.Size = new Size(85, 15);
             label29.TabIndex = 0;
             label29.Text = "BleakVision :";
             // 
@@ -290,9 +303,10 @@
             panel13.Controls.Add(label24);
             panel13.Controls.Add(label25);
             panel13.Controls.Add(label26);
-            panel13.Location = new Point(429, 179);
+            panel13.Location = new Point(375, 134);
+            panel13.Margin = new Padding(3, 2, 3, 2);
             panel13.Name = "panel13";
-            panel13.Size = new Size(796, 103);
+            panel13.Size = new Size(611, 77);
             panel13.TabIndex = 6;
             // 
             // label24
@@ -301,9 +315,9 @@
             label24.Dock = DockStyle.Right;
             label24.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.Yellow;
-            label24.Location = new Point(659, 0);
+            label24.Location = new Point(503, 0);
             label24.Name = "label24";
-            label24.Size = new Size(137, 38);
+            label24.Size = new Size(108, 30);
             label24.TabIndex = 2;
             label24.Text = "★★★★☆";
             // 
@@ -312,9 +326,9 @@
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label25.ForeColor = Color.FromArgb(224, 224, 224);
-            label25.Location = new Point(7, 33);
+            label25.Location = new Point(6, 25);
             label25.Name = "label25";
-            label25.Size = new Size(812, 40);
+            label25.Size = new Size(639, 30);
             label25.TabIndex = 1;
             label25.Text = "Гра лякає і занурює у темний світ села та таємниць.\r\nІноді сюжетні моменти здаються трохи заплутаними, але загальна атмосфера та страшні сцени компенсують це.";
             // 
@@ -323,9 +337,9 @@
             label26.AutoSize = true;
             label26.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label26.ForeColor = Color.White;
-            label26.Location = new Point(3, 10);
+            label26.Location = new Point(3, 8);
             label26.Name = "label26";
-            label26.Size = new Size(96, 20);
+            label26.Size = new Size(80, 15);
             label26.TabIndex = 0;
             label26.Text = "DreadPath :";
             // 
@@ -336,9 +350,10 @@
             panel12.Controls.Add(label21);
             panel12.Controls.Add(label22);
             panel12.Controls.Add(label23);
-            panel12.Location = new Point(429, 70);
+            panel12.Location = new Point(375, 52);
+            panel12.Margin = new Padding(3, 2, 3, 2);
             panel12.Name = "panel12";
-            panel12.Size = new Size(796, 103);
+            panel12.Size = new Size(611, 77);
             panel12.TabIndex = 5;
             // 
             // label21
@@ -347,9 +362,9 @@
             label21.Dock = DockStyle.Right;
             label21.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.Yellow;
-            label21.Location = new Point(659, 0);
+            label21.Location = new Point(503, 0);
             label21.Name = "label21";
-            label21.Size = new Size(137, 38);
+            label21.Size = new Size(108, 30);
             label21.TabIndex = 2;
             label21.Text = "★★☆☆☆";
             // 
@@ -358,9 +373,9 @@
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label22.ForeColor = Color.FromArgb(224, 224, 224);
-            label22.Location = new Point(7, 33);
+            label22.Location = new Point(6, 25);
             label22.Name = "label22";
-            label22.Size = new Size(633, 40);
+            label22.Size = new Size(500, 30);
             label22.TabIndex = 1;
             label22.Text = "Гра має моторошну атмосферу, але постійний страх і темні локації можуть втомлювати.\r\nСюжет інколи важко зрозуміти, і гра залишає змішані враження.";
             // 
@@ -369,9 +384,9 @@
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label23.ForeColor = Color.White;
-            label23.Location = new Point(3, 10);
+            label23.Location = new Point(3, 8);
             label23.Name = "label23";
-            label23.Size = new Size(96, 20);
+            label23.Size = new Size(80, 15);
             label23.TabIndex = 0;
             label23.Text = "DreadPath :";
             // 
@@ -381,9 +396,9 @@
             label30.AutoSize = true;
             label30.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label30.ForeColor = Color.White;
-            label30.Location = new Point(449, 30);
+            label30.Location = new Point(393, 22);
             label30.Name = "label30";
-            label30.Size = new Size(99, 28);
+            label30.Size = new Size(78, 21);
             label30.TabIndex = 2;
             label30.Text = "Outlast 2";
             // 
@@ -391,9 +406,10 @@
             // 
             pictureBox3.Dock = DockStyle.Left;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(10, 10);
+            pictureBox3.Location = new Point(9, 8);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(403, 393);
+            pictureBox3.Size = new Size(353, 294);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -407,11 +423,11 @@
             panel7.Controls.Add(panel8);
             panel7.Controls.Add(label20);
             panel7.Controls.Add(pictureBox2);
-            panel7.Location = new Point(10, 443);
-            panel7.Margin = new Padding(10);
+            panel7.Location = new Point(9, 332);
+            panel7.Margin = new Padding(9, 8, 9, 8);
             panel7.Name = "panel7";
-            panel7.Padding = new Padding(10);
-            panel7.Size = new Size(1238, 413);
+            panel7.Padding = new Padding(9, 8, 9, 8);
+            panel7.Size = new Size(998, 310);
             panel7.TabIndex = 1;
             // 
             // panel10
@@ -421,9 +437,10 @@
             panel10.Controls.Add(label17);
             panel10.Controls.Add(label18);
             panel10.Controls.Add(label19);
-            panel10.Location = new Point(429, 297);
+            panel10.Location = new Point(375, 223);
+            panel10.Margin = new Padding(3, 2, 3, 2);
             panel10.Name = "panel10";
-            panel10.Size = new Size(796, 103);
+            panel10.Size = new Size(611, 77);
             panel10.TabIndex = 6;
             // 
             // label17
@@ -432,9 +449,9 @@
             label17.Dock = DockStyle.Right;
             label17.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.Yellow;
-            label17.Location = new Point(659, 0);
+            label17.Location = new Point(503, 0);
             label17.Name = "label17";
-            label17.Size = new Size(137, 38);
+            label17.Size = new Size(108, 30);
             label17.TabIndex = 2;
             label17.Text = "★★★★★";
             // 
@@ -443,9 +460,9 @@
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.FromArgb(224, 224, 224);
-            label18.Location = new Point(7, 33);
+            label18.Location = new Point(6, 25);
             label18.Name = "label18";
-            label18.Size = new Size(728, 40);
+            label18.Size = new Size(574, 30);
             label18.TabIndex = 1;
             label18.Text = "Bendy неймовірний! Моторошна атмосфера, крутий ретро-мультяшний стиль і захоплюючий сюжет.\r\nКожна кімната та головоломка тримають у напрузі — просто геніально!";
             // 
@@ -454,9 +471,9 @@
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label19.ForeColor = Color.White;
-            label19.Location = new Point(3, 10);
+            label19.Location = new Point(3, 8);
             label19.Name = "label19";
-            label19.Size = new Size(108, 20);
+            label19.Size = new Size(90, 15);
             label19.TabIndex = 0;
             label19.Text = "SmudgeFace :";
             // 
@@ -467,9 +484,10 @@
             panel9.Controls.Add(label14);
             panel9.Controls.Add(label15);
             panel9.Controls.Add(label16);
-            panel9.Location = new Point(429, 180);
+            panel9.Location = new Point(375, 135);
+            panel9.Margin = new Padding(3, 2, 3, 2);
             panel9.Name = "panel9";
-            panel9.Size = new Size(796, 103);
+            panel9.Size = new Size(611, 77);
             panel9.TabIndex = 5;
             // 
             // label14
@@ -478,9 +496,9 @@
             label14.Dock = DockStyle.Right;
             label14.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.Yellow;
-            label14.Location = new Point(659, 0);
+            label14.Location = new Point(503, 0);
             label14.Name = "label14";
-            label14.Size = new Size(137, 38);
+            label14.Size = new Size(108, 30);
             label14.TabIndex = 2;
             label14.Text = "★★☆☆☆";
             // 
@@ -489,9 +507,9 @@
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(224, 224, 224);
-            label15.Location = new Point(7, 33);
+            label15.Location = new Point(6, 25);
             label15.Name = "label15";
-            label15.Size = new Size(728, 40);
+            label15.Size = new Size(576, 30);
             label15.TabIndex = 1;
             label15.Text = "Гра цікава своєю атмосферою, але сюжет здається заплутаним, а головоломки інколи надто складні.\r\nМоторошний стиль чудовий, але загалом гра трохи розчаровує.";
             // 
@@ -500,9 +518,9 @@
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label16.ForeColor = Color.White;
-            label16.Location = new Point(3, 10);
+            label16.Location = new Point(3, 8);
             label16.Name = "label16";
-            label16.Size = new Size(98, 20);
+            label16.Size = new Size(81, 15);
             label16.TabIndex = 0;
             label16.Text = "VintageInk :";
             // 
@@ -513,9 +531,10 @@
             panel8.Controls.Add(label11);
             panel8.Controls.Add(label12);
             panel8.Controls.Add(label13);
-            panel8.Location = new Point(429, 61);
+            panel8.Location = new Point(375, 46);
+            panel8.Margin = new Padding(3, 2, 3, 2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(796, 103);
+            panel8.Size = new Size(611, 77);
             panel8.TabIndex = 4;
             // 
             // label11
@@ -524,9 +543,9 @@
             label11.Dock = DockStyle.Right;
             label11.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.Yellow;
-            label11.Location = new Point(659, 0);
+            label11.Location = new Point(503, 0);
             label11.Name = "label11";
-            label11.Size = new Size(137, 38);
+            label11.Size = new Size(108, 30);
             label11.TabIndex = 2;
             label11.Text = "★★★★☆";
             // 
@@ -535,9 +554,9 @@
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(224, 224, 224);
-            label12.Location = new Point(7, 33);
+            label12.Location = new Point(6, 25);
             label12.Name = "label12";
-            label12.Size = new Size(577, 40);
+            label12.Size = new Size(456, 30);
             label12.TabIndex = 1;
             label12.Text = "Гра чудово передає старовинний мультяшний стиль і страшні повороти сюжету.\r\nІноді трохи передбачувано, але атмосфера все компенсує.";
             // 
@@ -546,9 +565,9 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(3, 10);
+            label13.Location = new Point(3, 8);
             label13.Name = "label13";
-            label13.Size = new Size(124, 20);
+            label13.Size = new Size(104, 15);
             label13.TabIndex = 0;
             label13.Text = "CreepyCartoon :";
             // 
@@ -558,9 +577,9 @@
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label20.ForeColor = Color.White;
-            label20.Location = new Point(439, 20);
+            label20.Location = new Point(384, 15);
             label20.Name = "label20";
-            label20.Size = new Size(271, 28);
+            label20.Size = new Size(218, 21);
             label20.TabIndex = 2;
             label20.Text = "Bendy and the Ink Machine";
             // 
@@ -568,9 +587,10 @@
             // 
             pictureBox2.Dock = DockStyle.Left;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(10, 10);
+            pictureBox2.Location = new Point(9, 8);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(403, 393);
+            pictureBox2.Size = new Size(353, 294);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -584,11 +604,11 @@
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(10, 10);
-            panel3.Margin = new Padding(10);
+            panel3.Location = new Point(9, 8);
+            panel3.Margin = new Padding(9, 8, 9, 8);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(10);
-            panel3.Size = new Size(1238, 413);
+            panel3.Padding = new Padding(9, 8, 9, 8);
+            panel3.Size = new Size(998, 310);
             panel3.TabIndex = 0;
             // 
             // panel6
@@ -598,9 +618,10 @@
             panel6.Controls.Add(label8);
             panel6.Controls.Add(label9);
             panel6.Controls.Add(label10);
-            panel6.Location = new Point(429, 297);
+            panel6.Location = new Point(375, 223);
+            panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(796, 103);
+            panel6.Size = new Size(611, 77);
             panel6.TabIndex = 5;
             // 
             // label8
@@ -609,9 +630,9 @@
             label8.Dock = DockStyle.Right;
             label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Yellow;
-            label8.Location = new Point(659, 0);
+            label8.Location = new Point(503, 0);
             label8.Name = "label8";
-            label8.Size = new Size(137, 38);
+            label8.Size = new Size(108, 30);
             label8.TabIndex = 2;
             label8.Text = "★★★★☆";
             // 
@@ -620,9 +641,9 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(224, 224, 224);
-            label9.Location = new Point(7, 33);
+            label9.Location = new Point(6, 25);
             label9.Name = "label9";
-            label9.Size = new Size(640, 40);
+            label9.Size = new Size(503, 30);
             label9.TabIndex = 1;
             label9.Text = "Люблю грати у The Sims за можливість створювати власний світ.\r\nІноді гра здається трохи передбачуваною, але нові предмети та меблі додають свіжості.";
             // 
@@ -631,9 +652,9 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(3, 10);
+            label10.Location = new Point(3, 8);
             label10.Name = "label10";
-            label10.Size = new Size(125, 20);
+            label10.Size = new Size(103, 15);
             label10.TabIndex = 0;
             label10.Text = "PinkLemonade :";
             // 
@@ -644,9 +665,10 @@
             panel5.Controls.Add(label5);
             panel5.Controls.Add(label6);
             panel5.Controls.Add(label7);
-            panel5.Location = new Point(429, 174);
+            panel5.Location = new Point(375, 130);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(796, 103);
+            panel5.Size = new Size(611, 77);
             panel5.TabIndex = 4;
             // 
             // label5
@@ -655,9 +677,9 @@
             label5.Dock = DockStyle.Right;
             label5.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Yellow;
-            label5.Location = new Point(659, 0);
+            label5.Location = new Point(503, 0);
             label5.Name = "label5";
-            label5.Size = new Size(137, 38);
+            label5.Size = new Size(108, 30);
             label5.TabIndex = 2;
             label5.Text = "★★★☆☆";
             // 
@@ -666,9 +688,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(224, 224, 224);
-            label6.Location = new Point(7, 33);
+            label6.Location = new Point(6, 25);
             label6.Name = "label6";
-            label6.Size = new Size(633, 40);
+            label6.Size = new Size(500, 30);
             label6.TabIndex = 1;
             label6.Text = "Гра цікава і дозволяє творити, але інколи повторюваний геймплей трохи набрид.\r\nДобре підходить для творчості, але хотілося б більше нових можливостей та оновлень.";
             // 
@@ -677,9 +699,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(3, 10);
+            label7.Location = new Point(3, 8);
             label7.Name = "label7";
-            label7.Size = new Size(107, 20);
+            label7.Size = new Size(88, 15);
             label7.TabIndex = 0;
             label7.Text = "StarryKitten :";
             // 
@@ -690,9 +712,10 @@
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label2);
-            panel4.Location = new Point(429, 54);
+            panel4.Location = new Point(375, 40);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(796, 103);
+            panel4.Size = new Size(611, 77);
             panel4.TabIndex = 3;
             // 
             // label4
@@ -701,9 +724,9 @@
             label4.Dock = DockStyle.Right;
             label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Yellow;
-            label4.Location = new Point(659, 0);
+            label4.Location = new Point(503, 0);
             label4.Name = "label4";
-            label4.Size = new Size(137, 38);
+            label4.Size = new Size(108, 30);
             label4.TabIndex = 2;
             label4.Text = "★★★★★";
             // 
@@ -712,9 +735,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(224, 224, 224);
-            label3.Location = new Point(7, 33);
+            label3.Location = new Point(6, 25);
             label3.Name = "label3";
-            label3.Size = new Size(765, 40);
+            label3.Size = new Size(604, 30);
             label3.TabIndex = 1;
             label3.Text = "Просто неймовірна гра! Можна створювати персонажів, будувати будинки і керувати життям своїх симів.\r\nАбсолютно захоплююче та дуже весело — рекомендую всім!";
             // 
@@ -723,9 +746,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(3, 10);
+            label2.Location = new Point(3, 8);
             label2.Name = "label2";
-            label2.Size = new Size(96, 20);
+            label2.Size = new Size(79, 15);
             label2.TabIndex = 0;
             label2.Text = "GlitterPuff :";
             // 
@@ -735,9 +758,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(429, 10);
+            label1.Location = new Point(375, 8);
             label1.Name = "label1";
-            label1.Size = new Size(115, 28);
+            label1.Size = new Size(91, 21);
             label1.TabIndex = 2;
             label1.Text = "The Sims 4";
             // 
@@ -745,21 +768,23 @@
             // 
             pictureBox1.Dock = DockStyle.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(10, 10);
+            pictureBox1.Location = new Point(9, 8);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(403, 393);
+            pictureBox1.Size = new Size(353, 294);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // ReviewForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1384, 977);
+            ClientSize = new Size(1211, 733);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ReviewForm";
             Text = "RevewForm";
             Load += ReviewForm_Load;
