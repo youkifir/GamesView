@@ -47,9 +47,8 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(970, 578);
+            panel1.Size = new Size(1109, 771);
             panel1.TabIndex = 0;
             // 
             // panel2
@@ -64,21 +63,20 @@
             panel2.Controls.Add(btnLog);
             panel2.Controls.Add(textBoxPass);
             panel2.Controls.Add(textBoxLogin);
-            panel2.Location = new Point(207, 9);
-            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Location = new Point(237, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(525, 488);
+            panel2.Size = new Size(600, 651);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
             // 
             // checkBoxRemember
             // 
             checkBoxRemember.AutoSize = true;
             checkBoxRemember.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             checkBoxRemember.ForeColor = SystemColors.ButtonHighlight;
-            checkBoxRemember.Location = new Point(79, 224);
-            checkBoxRemember.Margin = new Padding(3, 2, 3, 2);
+            checkBoxRemember.Location = new Point(90, 299);
             checkBoxRemember.Name = "checkBoxRemember";
-            checkBoxRemember.Size = new Size(142, 23);
+            checkBoxRemember.Size = new Size(174, 27);
             checkBoxRemember.TabIndex = 10;
             checkBoxRemember.Text = "Запам'ятати мене";
             checkBoxRemember.UseVisualStyleBackColor = true;
@@ -89,9 +87,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(79, 167);
+            label4.Location = new Point(90, 223);
             label4.Name = "label4";
-            label4.Size = new Size(64, 19);
+            label4.Size = new Size(80, 23);
             label4.TabIndex = 9;
             label4.Text = "Пароль :";
             // 
@@ -100,9 +98,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(79, 94);
+            label2.Location = new Point(90, 125);
             label2.Name = "label2";
-            label2.Size = new Size(102, 19);
+            label2.Size = new Size(123, 23);
             label2.TabIndex = 7;
             label2.Text = "Введіть логін :";
             // 
@@ -110,9 +108,9 @@
             // 
             linkLabelReg.AutoSize = true;
             linkLabelReg.LinkColor = Color.White;
-            linkLabelReg.Location = new Point(123, 455);
+            linkLabelReg.Location = new Point(141, 607);
             linkLabelReg.Name = "linkLabelReg";
-            linkLabelReg.Size = new Size(235, 15);
+            linkLabelReg.Size = new Size(298, 20);
             linkLabelReg.TabIndex = 6;
             linkLabelReg.TabStop = true;
             linkLabelReg.Text = "Ще не маєте аккаунта?      Зареєстуватися\r\n";
@@ -123,9 +121,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(215, 25);
+            label1.Location = new Point(246, 33);
             label1.Name = "label1";
-            label1.Size = new Size(75, 37);
+            label1.Size = new Size(92, 46);
             label1.TabIndex = 5;
             label1.Text = "Вхід";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -140,10 +138,9 @@
             btnLog.FlatStyle = FlatStyle.Flat;
             btnLog.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLog.ForeColor = SystemColors.ButtonHighlight;
-            btnLog.Location = new Point(138, 412);
-            btnLog.Margin = new Padding(3, 2, 3, 2);
+            btnLog.Location = new Point(158, 549);
             btnLog.Name = "btnLog";
-            btnLog.Size = new Size(228, 34);
+            btnLog.Size = new Size(261, 45);
             btnLog.TabIndex = 4;
             btnLog.Text = "Увійти\r\n";
             btnLog.UseVisualStyleBackColor = false;
@@ -155,10 +152,9 @@
             textBoxPass.BackColor = Color.Silver;
             textBoxPass.BorderStyle = BorderStyle.FixedSingle;
             textBoxPass.Font = new Font("Segoe UI", 11F);
-            textBoxPass.Location = new Point(79, 187);
-            textBoxPass.Margin = new Padding(3, 2, 3, 2);
+            textBoxPass.Location = new Point(90, 249);
             textBoxPass.Name = "textBoxPass";
-            textBoxPass.Size = new Size(350, 27);
+            textBoxPass.Size = new Size(400, 32);
             textBoxPass.TabIndex = 2;
             textBoxPass.Text = "\r\n";
             textBoxPass.TextChanged += textBoxPass_TextChanged;
@@ -169,22 +165,20 @@
             textBoxLogin.BackColor = Color.Silver;
             textBoxLogin.BorderStyle = BorderStyle.FixedSingle;
             textBoxLogin.Font = new Font("Segoe UI", 11F);
-            textBoxLogin.Location = new Point(79, 114);
-            textBoxLogin.Margin = new Padding(3, 2, 3, 2);
+            textBoxLogin.Location = new Point(90, 152);
             textBoxLogin.Name = "textBoxLogin";
-            textBoxLogin.Size = new Size(350, 27);
+            textBoxLogin.Size = new Size(400, 32);
             textBoxLogin.TabIndex = 0;
             textBoxLogin.Text = "\r\n";
             textBoxLogin.TextChanged += textBoxLogin_TextChanged;
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(970, 578);
+            ClientSize = new Size(1109, 771);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormLogin";
             Text = "Form1";
             panel1.ResumeLayout(false);

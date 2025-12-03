@@ -21,6 +21,8 @@ namespace GamesView.Forms
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
+
+            this.Load += ProfileForm_Load;
         }
 
         private void pictureAvatar_Click(object sender, EventArgs e)
@@ -73,5 +75,26 @@ namespace GamesView.Forms
             var profile = new ProfileForm(_userService, _currentUser);
             FormNavigator.Switch(this, profile);
         }
+
+        private void panelProfileHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void ProfileForm_Load(object sender, EventArgs e)
+        {
+            labelUsername.Text = _currentUser.Login;
+            labelEmail.Text = _currentUser.Email;
+        }
+
     }
 }

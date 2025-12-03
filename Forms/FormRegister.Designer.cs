@@ -64,6 +64,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(600, 650);
             panel2.TabIndex = 0;
+            panel2.Paint += panel2_Paint;
             // 
             // label5
             // 
@@ -188,7 +189,6 @@
             textBoxMail.Size = new Size(400, 32);
             textBoxMail.TabIndex = 1;
             textBoxMail.Text = "\r\n";
-            
             // 
             // textBoxLogin
             // 
