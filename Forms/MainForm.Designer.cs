@@ -37,6 +37,7 @@
             btnLibrary = new Button();
             panel2 = new Panel();
             panel4 = new Panel();
+            button2 = new Button();
             textBox2 = new TextBox();
             label4 = new Label();
             comboBox1 = new ComboBox();
@@ -47,7 +48,7 @@
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             label1 = new Label();
-            button2 = new Button();
+            label5 = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -181,6 +182,7 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(45, 45, 45);
+            panel4.Controls.Add(label5);
             panel4.Controls.Add(button2);
             panel4.Controls.Add(textBox2);
             panel4.Controls.Add(label4);
@@ -195,6 +197,20 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1095, 534);
             panel4.TabIndex = 1;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.Lime;
+            button2.Cursor = Cursors.Hand;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(914, 242);
+            button2.Name = "button2";
+            button2.Size = new Size(164, 39);
+            button2.TabIndex = 10;
+            button2.Text = "Додати гру";
+            button2.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
@@ -299,19 +315,14 @@
             label1.TabIndex = 0;
             label1.Text = "Додати нову гру";
             // 
-            // button2
+            // label5
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.Lime;
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(914, 242);
-            button2.Name = "button2";
-            button2.Size = new Size(164, 39);
-            button2.TabIndex = 10;
-            button2.Text = "Додати гру";
-            button2.UseVisualStyleBackColor = false;
+            label5.AutoSize = true;
+            label5.Location = new Point(542, 259);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 11;
+            label5.Text = "label5";
             // 
             // MainForm
             // 
@@ -356,5 +367,6 @@
         private Label label3;
         private TextBox textBox1;
         private Button button2;
+        private Label label5;
     }
 }
