@@ -148,5 +148,14 @@ namespace GamesView.Services
                 return false;
             }
         }
+        public List<Game> GetUserFavorites(int userId)
+        {
+            return _context.Favorites
+                .Where(f => f.UserId == userId)
+                .Include(f => f.Game)
+                .Select(f => f.Game)
+                .ToList();
+        }
+
     }
 }

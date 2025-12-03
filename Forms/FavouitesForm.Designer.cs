@@ -203,6 +203,7 @@
             flowFavorites.Padding = new Padding(10);
             flowFavorites.Size = new Size(1337, 742);
             flowFavorites.TabIndex = 1;
+            flowFavorites.Paint += flowFavorites_Paint;
             // 
             // panel2
             // 

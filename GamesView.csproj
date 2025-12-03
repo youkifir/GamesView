@@ -9,6 +9,81 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\covers\alienisolation.jpg" />
+    <None Remove="Resources\covers\beyond.jpg" />
+    <None Remove="Resources\covers\cyberpunk2077.jpg" />
+    <None Remove="Resources\covers\detroit.jpg" />
+    <None Remove="Resources\covers\heavyrain.jpg" />
+    <None Remove="Resources\covers\hogwarts..jpg" />
+    <None Remove="Resources\covers\hollowknight.jpg" />
+    <None Remove="Resources\covers\lifeisstrange.jpg" />
+    <None Remove="Resources\covers\littlenightmares2.jpg" />
+    <None Remove="Resources\covers\metro2033.jpg" />
+    <None Remove="Resources\covers\nohuman.jpg" />
+    <None Remove="Resources\covers\outlasttrials.jpg" />
+    <None Remove="Resources\covers\phasmophobia.jpg" />
+    <None Remove="Resources\covers\quarry.jpg" />
+    <None Remove="Resources\covers\rdr2.jpg" />
+    <None Remove="Resources\covers\silenthill2.jpg" />
+    <None Remove="Resources\covers\spiderman2.jpg" />
+    <None Remove="Resources\covers\tlou1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\covers\alienisolation.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\beyond.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\cyberpunk2077.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\detroit.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\heavyrain.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\hollowknight.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\lifeisstrange.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\littlenightmares2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\metro2033.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\nohuman.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\outlasttrials.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\phasmophobia.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\quarry.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\rdr2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\silenthill2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\spiderman2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\covers\tlou1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
