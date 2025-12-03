@@ -431,6 +431,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(224, 224, 224);
@@ -439,6 +440,7 @@
             label9.Size = new Size(141, 20);
             label9.TabIndex = 3;
             label9.Text = "Додано 28 Лютого";
+            label9.Click += label9_Click;
             // 
             // label6
             // 
