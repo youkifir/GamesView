@@ -200,6 +200,7 @@
             panelProfileHeader.Name = "panelProfileHeader";
             panelProfileHeader.Size = new Size(1563, 220);
             panelProfileHeader.TabIndex = 1;
+            panelProfileHeader.Paint += panelProfileHeader_Paint;
             // 
             // button1
             // 
@@ -207,7 +208,7 @@
             button1.ForeColor = Color.Pink;
             button1.Location = new Point(1392, 172);
             button1.Name = "button1";
-            button1.Size = new Size(159, 42);
+            button1.Size = new Size(159, 43);
             button1.TabIndex = 3;
             button1.Text = "Адмін панель";
             button1.UseVisualStyleBackColor = true;
@@ -218,11 +219,12 @@
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelEmail.ForeColor = Color.Silver;
-            labelEmail.Location = new Point(212, 89);
+            labelEmail.Location = new Point(213, 89);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(176, 25);
             labelEmail.TabIndex = 2;
             labelEmail.Text = "email@example.com";
+            labelEmail.Click += labelEmail_Click;
             // 
             // labelUsername
             // 
@@ -234,13 +236,14 @@
             labelUsername.Size = new Size(259, 50);
             labelUsername.TabIndex = 1;
             labelUsername.Text = "Username123";
+            labelUsername.Click += labelUsername_Click;
             // 
             // pictureAvatar
             // 
             pictureAvatar.Image = (Image)resources.GetObject("pictureAvatar.Image");
             pictureAvatar.Location = new Point(30, 35);
             pictureAvatar.Name = "pictureAvatar";
-            pictureAvatar.Size = new Size(150, 150);
+            pictureAvatar.Size = new Size(150, 149);
             pictureAvatar.SizeMode = PictureBoxSizeMode.Zoom;
             pictureAvatar.TabIndex = 0;
             pictureAvatar.TabStop = false;
@@ -272,7 +275,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Impact", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(12, 13);
+            label10.Location = new Point(11, 13);
             label10.Name = "label10";
             label10.Size = new Size(249, 22);
             label10.TabIndex = 0;
@@ -284,7 +287,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 460);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1563, 50);
+            panel2.Size = new Size(1563, 51);
             panel2.TabIndex = 3;
             // 
             // label1
@@ -292,7 +295,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 3);
+            label1.Location = new Point(11, 3);
             label1.Name = "label1";
             label1.Size = new Size(304, 41);
             label1.TabIndex = 0;
@@ -305,10 +308,10 @@
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 510);
+            flowLayoutPanel1.Location = new Point(0, 511);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(10);
-            flowLayoutPanel1.Size = new Size(1563, 665);
+            flowLayoutPanel1.Padding = new Padding(10, 11, 10, 11);
+            flowLayoutPanel1.Size = new Size(1563, 544);
             flowLayoutPanel1.TabIndex = 4;
             flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
@@ -318,7 +321,7 @@
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(13, 13);
+            panel3.Location = new Point(13, 14);
             panel3.Name = "panel3";
             panel3.Size = new Size(975, 160);
             panel3.TabIndex = 0;
@@ -329,7 +332,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(224, 224, 224);
-            label3.Location = new Point(799, 122);
+            label3.Location = new Point(799, 123);
             label3.Name = "label3";
             label3.Size = new Size(169, 20);
             label3.TabIndex = 2;
@@ -340,7 +343,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(252, 13);
+            label2.Location = new Point(251, 13);
             label2.Name = "label2";
             label2.Size = new Size(245, 28);
             label2.TabIndex = 1;
@@ -364,7 +367,7 @@
             panel4.Controls.Add(label4);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(13, 179);
+            panel4.Location = new Point(13, 180);
             panel4.Name = "panel4";
             panel4.Size = new Size(975, 160);
             panel4.TabIndex = 1;
@@ -375,7 +378,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(224, 224, 224);
-            label8.Location = new Point(840, 122);
+            label8.Location = new Point(840, 123);
             label8.Name = "label8";
             label8.Size = new Size(128, 20);
             label8.TabIndex = 3;
@@ -397,7 +400,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(252, 13);
+            label5.Location = new Point(251, 13);
             label5.Name = "label5";
             label5.Size = new Size(141, 28);
             label5.TabIndex = 1;
@@ -421,7 +424,7 @@
             panel5.Controls.Add(label6);
             panel5.Controls.Add(label7);
             panel5.Controls.Add(pictureBox3);
-            panel5.Location = new Point(13, 345);
+            panel5.Location = new Point(13, 346);
             panel5.Name = "panel5";
             panel5.Size = new Size(975, 160);
             panel5.TabIndex = 2;
@@ -432,7 +435,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(224, 224, 224);
-            label9.Location = new Point(827, 122);
+            label9.Location = new Point(827, 123);
             label9.Name = "label9";
             label9.Size = new Size(141, 20);
             label9.TabIndex = 3;
@@ -455,7 +458,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(252, 13);
+            label7.Location = new Point(251, 13);
             label7.Name = "label7";
             label7.Size = new Size(108, 28);
             label7.TabIndex = 1;
@@ -479,14 +482,14 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1563, 1175);
+            ClientSize = new Size(1563, 1055);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel2);
             Controls.Add(panelAccountInfo);
             Controls.Add(panelProfileHeader);
             Controls.Add(panel1);
             Name = "ProfileForm";
-            Text = "AdminForm";
+            Text = "ProfileForm";
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panelProfileHeader.ResumeLayout(false);

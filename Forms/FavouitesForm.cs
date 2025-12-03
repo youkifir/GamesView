@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GamesView.Models;
+using GamesView.Utilits;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace GamesView.Forms
 {
     public partial class FavouitesForm : Form
     {
-        public FavouitesForm()
+        private readonly UserService _userService;
+        private readonly User _currentUser;
+        public FavouitesForm(UserService userService, User user)
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            _userService = userService;
+            _currentUser = user;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -24,26 +30,35 @@ namespace GamesView.Forms
 
         private void btnLibrary_Click(object sender, EventArgs e)
         {
+            var library = new LibraryForm(_userService, _currentUser);
+            FormNavigator.Switch(this, library);
 
         }
 
         private void btnFavorite_Click(object sender, EventArgs e)
         {
+            var favourite = new FavouitesForm(_userService, _currentUser);
+            FormNavigator.Switch(this, favourite);
 
         }
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-
+            var review = new ReviewForm(_userService, _currentUser);
+            FormNavigator.Switch(this, review);
         }
 
         private void btnNews_Click(object sender, EventArgs e)
         {
+            var news = new FormNews(_userService, _currentUser);
+            FormNavigator.Switch(this, news);
 
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
+            var profile = new ProfileForm(_userService, _currentUser);
+            FormNavigator.Switch(this, profile);
 
         }
 

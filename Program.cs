@@ -1,4 +1,6 @@
+using GamesView.Data;
 using GamesView.Forms;
+using GamesView.Models;
 
 namespace GamesView
 {
@@ -10,10 +12,12 @@ namespace GamesView
         [STAThread]
         static void Main()
         {
+            AppDbContext context = new AppDbContext();
+            UserService userService = new UserService(context);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ProfileForm());
+            Application.Run(new FormLogin(userService));
         }
     }
 }
