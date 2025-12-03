@@ -234,7 +234,7 @@
             panel11.Margin = new Padding(10);
             panel11.Name = "panel11";
             panel11.Padding = new Padding(10);
-            panel11.Size = new Size(1238, 413);
+            panel11.Size = new Size(1299, 413);
             panel11.TabIndex = 2;
             // 
             // panel14
@@ -246,7 +246,7 @@
             panel14.Controls.Add(label29);
             panel14.Location = new Point(429, 297);
             panel14.Name = "panel14";
-            panel14.Size = new Size(796, 103);
+            panel14.Size = new Size(857, 103);
             panel14.TabIndex = 7;
             // 
             // label27
@@ -255,7 +255,7 @@
             label27.Dock = DockStyle.Right;
             label27.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label27.ForeColor = Color.Yellow;
-            label27.Location = new Point(659, 0);
+            label27.Location = new Point(720, 0);
             label27.Name = "label27";
             label27.Size = new Size(137, 38);
             label27.TabIndex = 2;
@@ -292,7 +292,7 @@
             panel13.Controls.Add(label26);
             panel13.Location = new Point(429, 179);
             panel13.Name = "panel13";
-            panel13.Size = new Size(796, 103);
+            panel13.Size = new Size(857, 103);
             panel13.TabIndex = 6;
             // 
             // label24
@@ -301,7 +301,7 @@
             label24.Dock = DockStyle.Right;
             label24.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.Yellow;
-            label24.Location = new Point(659, 0);
+            label24.Location = new Point(720, 0);
             label24.Name = "label24";
             label24.Size = new Size(137, 38);
             label24.TabIndex = 2;
@@ -338,7 +338,7 @@
             panel12.Controls.Add(label23);
             panel12.Location = new Point(429, 70);
             panel12.Name = "panel12";
-            panel12.Size = new Size(796, 103);
+            panel12.Size = new Size(857, 103);
             panel12.TabIndex = 5;
             // 
             // label21
@@ -347,7 +347,7 @@
             label21.Dock = DockStyle.Right;
             label21.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.Yellow;
-            label21.Location = new Point(659, 0);
+            label21.Location = new Point(720, 0);
             label21.Name = "label21";
             label21.Size = new Size(137, 38);
             label21.TabIndex = 2;
@@ -411,7 +411,7 @@
             panel7.Margin = new Padding(10);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(10);
-            panel7.Size = new Size(1238, 413);
+            panel7.Size = new Size(1299, 413);
             panel7.TabIndex = 1;
             // 
             // panel10
@@ -423,7 +423,7 @@
             panel10.Controls.Add(label19);
             panel10.Location = new Point(429, 297);
             panel10.Name = "panel10";
-            panel10.Size = new Size(796, 103);
+            panel10.Size = new Size(857, 103);
             panel10.TabIndex = 6;
             // 
             // label17
@@ -432,7 +432,7 @@
             label17.Dock = DockStyle.Right;
             label17.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.Yellow;
-            label17.Location = new Point(659, 0);
+            label17.Location = new Point(720, 0);
             label17.Name = "label17";
             label17.Size = new Size(137, 38);
             label17.TabIndex = 2;
@@ -469,7 +469,7 @@
             panel9.Controls.Add(label16);
             panel9.Location = new Point(429, 180);
             panel9.Name = "panel9";
-            panel9.Size = new Size(796, 103);
+            panel9.Size = new Size(857, 103);
             panel9.TabIndex = 5;
             // 
             // label14
@@ -478,7 +478,7 @@
             label14.Dock = DockStyle.Right;
             label14.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.Yellow;
-            label14.Location = new Point(659, 0);
+            label14.Location = new Point(720, 0);
             label14.Name = "label14";
             label14.Size = new Size(137, 38);
             label14.TabIndex = 2;
@@ -515,7 +515,7 @@
             panel8.Controls.Add(label13);
             panel8.Location = new Point(429, 61);
             panel8.Name = "panel8";
-            panel8.Size = new Size(796, 103);
+            panel8.Size = new Size(857, 103);
             panel8.TabIndex = 4;
             // 
             // label11
@@ -524,7 +524,7 @@
             label11.Dock = DockStyle.Right;
             label11.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.Yellow;
-            label11.Location = new Point(659, 0);
+            label11.Location = new Point(720, 0);
             label11.Name = "label11";
             label11.Size = new Size(137, 38);
             label11.TabIndex = 2;
@@ -588,7 +588,7 @@
             panel3.Margin = new Padding(10);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(10);
-            panel3.Size = new Size(1238, 413);
+            panel3.Size = new Size(1299, 413);
             panel3.TabIndex = 0;
             // 
             // panel6
@@ -600,7 +600,7 @@
             panel6.Controls.Add(label10);
             panel6.Location = new Point(429, 297);
             panel6.Name = "panel6";
-            panel6.Size = new Size(796, 103);
+            panel6.Size = new Size(857, 103);
             panel6.TabIndex = 5;
             // 
             // label8
@@ -609,7 +609,7 @@
             label8.Dock = DockStyle.Right;
             label8.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Yellow;
-            label8.Location = new Point(659, 0);
+            label8.Location = new Point(720, 0);
             label8.Name = "label8";
             label8.Size = new Size(137, 38);
             label8.TabIndex = 2;
@@ -646,7 +646,7 @@
             panel5.Controls.Add(label7);
             panel5.Location = new Point(429, 174);
             panel5.Name = "panel5";
-            panel5.Size = new Size(796, 103);
+            panel5.Size = new Size(857, 103);
             panel5.TabIndex = 4;
             // 
             // label5
@@ -655,7 +655,7 @@
             label5.Dock = DockStyle.Right;
             label5.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Yellow;
-            label5.Location = new Point(659, 0);
+            label5.Location = new Point(720, 0);
             label5.Name = "label5";
             label5.Size = new Size(137, 38);
             label5.TabIndex = 2;
@@ -692,7 +692,7 @@
             panel4.Controls.Add(label2);
             panel4.Location = new Point(429, 54);
             panel4.Name = "panel4";
-            panel4.Size = new Size(796, 103);
+            panel4.Size = new Size(857, 103);
             panel4.TabIndex = 3;
             // 
             // label4
@@ -701,7 +701,7 @@
             label4.Dock = DockStyle.Right;
             label4.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Yellow;
-            label4.Location = new Point(659, 0);
+            label4.Location = new Point(720, 0);
             label4.Name = "label4";
             label4.Size = new Size(137, 38);
             label4.TabIndex = 2;
