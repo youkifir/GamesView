@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GamesView.Forms
 {
@@ -29,8 +30,9 @@ namespace GamesView.Forms
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             var admin = new FormAddNews(_userService, _currentUser);
-            FormNavigator.Switch(this, admin);
 
+            admin.ShowDialog();
+            this.Hide();
         }
 
         private void pictureAvatar_Click(object sender, EventArgs e)

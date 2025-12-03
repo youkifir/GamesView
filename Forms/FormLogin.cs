@@ -25,7 +25,7 @@ namespace GamesView
             try
             {
                 string login = textBoxLogin.Text.Trim();
-                string pass = textBoxPass.Text; // не тримим пароль
+                string pass = textBoxPass.Text;
 
                 if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(pass))
                 {
@@ -33,7 +33,6 @@ namespace GamesView
                     return;
                 }
 
-                // Вызов твоего UserService exactly как есть
                 var result = await _userService.LoginAsync(login, pass);
 
                 if (!result.success)
@@ -49,7 +48,7 @@ namespace GamesView
                     return;
                 }
 
-                // Запомнить (сохраняем логин и пароль в Settings — ты уже создал ключи)
+                // Запомнить
                 if (checkBoxRemember.Checked)
                 {
                     Properties.Settings.Default.Login = login;
@@ -66,8 +65,8 @@ namespace GamesView
                 }
 
                 // Успешный вход — открываем основную форму и прячем логин
-                var main = new MainForm(_userService, user); // предполагается конструктор, принимающий User
-                main.Show();
+                var library = new LibraryForm(_userService, user); // предполагается конструктор, принимающий User
+                library.Show();
                 this.Hide();
             }
             catch (Exception ex)
