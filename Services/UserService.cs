@@ -1,8 +1,6 @@
 ﻿using GamesView.Data;
 using GamesView.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
-using System.Text;
 
 public class UserService
 {
@@ -18,7 +16,10 @@ public class UserService
     {
         try
         {
-            if (password != confirmPassword)
+            string cleanPassword = RemoveControlCharacters(password);
+            string cleanConfirmPassword = RemoveControlCharacters(confirmPassword);
+
+            if (cleanPassword != cleanConfirmPassword)
                 return (false, "Паролі не співпадають");
 
             if (await _context.Users.AnyAsync(u => u.Login == login))
@@ -31,8 +32,8 @@ public class UserService
             {
                 Login = login,
                 Email = email,
-                PasswordHash = HashPassword(password),
-                RoleId = 1, // User
+                PasswordHash = cleanPassword,
+                RoleId = 1,
                 DateCreated = DateTime.Now
             };
 
@@ -56,7 +57,14 @@ public class UserService
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Login == login);
 
-            if (user == null || !VerifyPassword(password, user.PasswordHash))
+            if (user == null)
+                return (false, null, "Невірний логін або пароль");
+
+            // Убираем все управляющие символы из сохраненного пароля
+            string storedPassword = RemoveControlCharacters(user.PasswordHash);
+            string inputPassword = RemoveControlCharacters(password);
+
+            if (inputPassword != storedPassword)
                 return (false, null, "Невірний логін або пароль");
 
             return (true, user, "Вхід успішний");
@@ -65,6 +73,20 @@ public class UserService
         {
             return (false, null, $"Помилка входу: {ex.Message}");
         }
+    }
+
+    // Метод для удаления управляющих символов
+    private string RemoveControlCharacters(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return input;
+
+        return new string(input.Where(c => !char.IsControl(c)).ToArray());
+    }
+
+    public static bool IsAdmin(User user)
+    {
+        return user?.RoleId == 2;
     }
 
     public async Task<User> GetUserByIdAsync(int userId)
@@ -99,10 +121,10 @@ public class UserService
         try
         {
             var user = await _context.Users.FindAsync(userId);
-            if (user == null || !VerifyPassword(currentPassword, user.PasswordHash))
+            if (user == null || currentPassword != user.PasswordHash)
                 return false;
 
-            user.PasswordHash = HashPassword(newPassword);
+            user.PasswordHash = newPassword;
             await _context.SaveChangesAsync();
             return true;
         }
@@ -110,20 +132,5 @@ public class UserService
         {
             return false;
         }
-    }
-
-    //Хэшировать пароль, но необязательно
-    private string HashPassword(string password)
-    {
-        using var sha256 = SHA256.Create();
-        var bytes = Encoding.UTF8.GetBytes(password);
-        var hash = sha256.ComputeHash(bytes);
-        return Convert.ToBase64String(hash);
-    }
-
-    //Подтверждение пароля
-    private bool VerifyPassword(string password, string passwordHash)
-    {
-        return HashPassword(password) == passwordHash;
     }
 }

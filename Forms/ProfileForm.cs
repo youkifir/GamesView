@@ -23,6 +23,14 @@ namespace GamesView.Forms
             _currentUser = user;
 
             this.Load += ProfileForm_Load;
+
+            btnAdmin.Visible = UserService.IsAdmin(_currentUser);
+        }
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            var admin = new FormAddNews(_userService, _currentUser);
+            FormNavigator.Switch(this, admin);
+
         }
 
         private void pictureAvatar_Click(object sender, EventArgs e)
@@ -95,6 +103,7 @@ namespace GamesView.Forms
             labelUsername.Text = _currentUser.Login;
             labelEmail.Text = _currentUser.Email;
         }
+
 
     }
 }
