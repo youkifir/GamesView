@@ -30,9 +30,7 @@ namespace GamesView.Forms
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             var admin = new FormAddNews(_userService, _currentUser);
-
-            admin.ShowDialog();
-            this.Hide();
+            FormNavigator.Switch(this, admin);
         }
 
         private void pictureAvatar_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace GamesView.Forms
 {
-    partial class MainForm
+    partial class FormAddGame
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             btnNews = new Button();
             btnReview = new Button();
             btnFavorite = new Button();
-            btnLibrary = new Button();
+            btnAddGame = new Button();
             panel2 = new Panel();
             panel4 = new Panel();
             button2 = new Button();
@@ -61,8 +61,9 @@
             panel1.Controls.Add(tableLayoutPanel1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1127, 60);
+            panel1.Size = new Size(986, 45);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -77,13 +78,14 @@
             tableLayoutPanel1.Controls.Add(btnNews, 3, 0);
             tableLayoutPanel1.Controls.Add(btnReview, 2, 0);
             tableLayoutPanel1.Controls.Add(btnFavorite, 1, 0);
-            tableLayoutPanel1.Controls.Add(btnLibrary, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnAddGame, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1127, 60);
+            tableLayoutPanel1.Size = new Size(986, 45);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnProfile
@@ -94,9 +96,10 @@
             btnProfile.FlatStyle = FlatStyle.Flat;
             btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnProfile.ForeColor = Color.WhiteSmoke;
-            btnProfile.Location = new Point(903, 3);
+            btnProfile.Location = new Point(791, 2);
+            btnProfile.Margin = new Padding(3, 2, 3, 2);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(221, 54);
+            btnProfile.Size = new Size(192, 41);
             btnProfile.TabIndex = 4;
             btnProfile.Text = "Профіль";
             btnProfile.UseVisualStyleBackColor = true;
@@ -110,9 +113,10 @@
             btnNews.FlatStyle = FlatStyle.Flat;
             btnNews.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnNews.ForeColor = Color.WhiteSmoke;
-            btnNews.Location = new Point(678, 3);
+            btnNews.Location = new Point(594, 2);
+            btnNews.Margin = new Padding(3, 2, 3, 2);
             btnNews.Name = "btnNews";
-            btnNews.Size = new Size(219, 54);
+            btnNews.Size = new Size(191, 41);
             btnNews.TabIndex = 3;
             btnNews.Text = "Додати новини";
             btnNews.UseVisualStyleBackColor = true;
@@ -126,9 +130,10 @@
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnReview.ForeColor = Color.WhiteSmoke;
-            btnReview.Location = new Point(453, 3);
+            btnReview.Location = new Point(397, 2);
+            btnReview.Margin = new Padding(3, 2, 3, 2);
             btnReview.Name = "btnReview";
-            btnReview.Size = new Size(219, 54);
+            btnReview.Size = new Size(191, 41);
             btnReview.TabIndex = 2;
             btnReview.Text = "Відгуки";
             btnReview.UseVisualStyleBackColor = true;
@@ -142,40 +147,42 @@
             btnFavorite.FlatStyle = FlatStyle.Flat;
             btnFavorite.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnFavorite.ForeColor = Color.WhiteSmoke;
-            btnFavorite.Location = new Point(228, 3);
+            btnFavorite.Location = new Point(200, 2);
+            btnFavorite.Margin = new Padding(3, 2, 3, 2);
             btnFavorite.Name = "btnFavorite";
-            btnFavorite.Size = new Size(219, 54);
+            btnFavorite.Size = new Size(191, 41);
             btnFavorite.TabIndex = 1;
             btnFavorite.Text = "Улюблені ігри";
             btnFavorite.UseVisualStyleBackColor = true;
             btnFavorite.Click += btnFavorite_Click;
             // 
-            // btnLibrary
+            // btnAddGame
             // 
-            btnLibrary.Dock = DockStyle.Fill;
-            btnLibrary.FlatAppearance.BorderColor = Color.FromArgb(63, 81, 181);
-            btnLibrary.FlatAppearance.MouseOverBackColor = Color.Red;
-            btnLibrary.FlatStyle = FlatStyle.Flat;
-            btnLibrary.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnLibrary.ForeColor = Color.WhiteSmoke;
-            btnLibrary.Location = new Point(3, 3);
-            btnLibrary.Name = "btnLibrary";
-            btnLibrary.Size = new Size(219, 54);
-            btnLibrary.TabIndex = 0;
-            btnLibrary.Text = "Бібліотека";
-            btnLibrary.UseVisualStyleBackColor = true;
-            btnLibrary.Click += btnLibrary_Click;
+            btnAddGame.Dock = DockStyle.Fill;
+            btnAddGame.FlatAppearance.BorderColor = Color.FromArgb(63, 81, 181);
+            btnAddGame.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnAddGame.FlatStyle = FlatStyle.Flat;
+            btnAddGame.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnAddGame.ForeColor = Color.WhiteSmoke;
+            btnAddGame.Location = new Point(3, 2);
+            btnAddGame.Margin = new Padding(3, 2, 3, 2);
+            btnAddGame.Name = "btnAddGame";
+            btnAddGame.Size = new Size(191, 41);
+            btnAddGame.TabIndex = 0;
+            btnAddGame.Text = "Додати Гру";
+            btnAddGame.UseVisualStyleBackColor = true;
+            btnAddGame.Click += btnAddGame_Click;
             // 
             // panel2
             // 
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 60);
-            panel2.Margin = new Padding(10);
+            panel2.Location = new Point(0, 45);
+            panel2.Margin = new Padding(9, 8, 9, 8);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(16);
-            panel2.Size = new Size(1127, 616);
+            panel2.Padding = new Padding(14, 12, 14, 12);
+            panel2.Size = new Size(986, 462);
             panel2.TabIndex = 1;
             // 
             // panel4
@@ -191,9 +198,10 @@
             panel4.Controls.Add(button1);
             panel4.Controls.Add(pictureBox1);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(16, 66);
+            panel4.Location = new Point(14, 50);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1095, 534);
+            panel4.Size = new Size(958, 400);
             panel4.TabIndex = 1;
             // 
             // button2
@@ -203,9 +211,10 @@
             button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderSize = 0;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(914, 242);
+            button2.Location = new Point(800, 182);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(164, 39);
+            button2.Size = new Size(144, 29);
             button2.TabIndex = 10;
             button2.Text = "Додати гру";
             button2.UseVisualStyleBackColor = false;
@@ -213,9 +222,10 @@
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(543, 196);
+            textBox2.Location = new Point(475, 147);
+            textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(535, 27);
+            textBox2.Size = new Size(469, 23);
             textBox2.TabIndex = 7;
             // 
             // label4
@@ -224,9 +234,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(428, 195);
+            label4.Location = new Point(374, 146);
             label4.Name = "label4";
-            label4.Size = new Size(101, 25);
+            label4.Size = new Size(81, 20);
             label4.TabIndex = 6;
             label4.Text = "Опис гри :";
             // 
@@ -235,9 +245,10 @@
             comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Хоррор", "Одиночна гра", "Інтерактивне кіно" });
-            comboBox1.Location = new Point(543, 121);
+            comboBox1.Location = new Point(475, 91);
+            comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(535, 28);
+            comboBox1.Size = new Size(469, 23);
             comboBox1.TabIndex = 5;
             // 
             // label3
@@ -246,18 +257,19 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(428, 120);
+            label3.Location = new Point(374, 90);
             label3.Name = "label3";
-            label3.Size = new Size(106, 25);
+            label3.Size = new Size(87, 20);
             label3.TabIndex = 4;
             label3.Text = "Категорія :";
             // 
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(543, 53);
+            textBox1.Location = new Point(475, 40);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(535, 27);
+            textBox1.Size = new Size(469, 23);
             textBox1.TabIndex = 3;
             // 
             // label2
@@ -266,9 +278,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(428, 53);
+            label2.Location = new Point(374, 40);
             label2.Name = "label2";
-            label2.Size = new Size(109, 25);
+            label2.Size = new Size(88, 20);
             label2.TabIndex = 2;
             label2.Text = "Назва гри :";
             label2.Click += label2_Click;
@@ -276,9 +288,10 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(3, 6);
+            button1.Location = new Point(3, 4);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(403, 35);
+            button1.Size = new Size(353, 26);
             button1.TabIndex = 1;
             button1.Text = "Обрати фото";
             button1.UseVisualStyleBackColor = true;
@@ -286,9 +299,10 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(50, 50, 50);
-            pictureBox1.Location = new Point(3, 53);
+            pictureBox1.Location = new Point(3, 40);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(403, 449);
+            pictureBox1.Size = new Size(353, 337);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -296,9 +310,10 @@
             // 
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(16, 16);
+            panel3.Location = new Point(14, 12);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1095, 50);
+            panel3.Size = new Size(958, 38);
             panel3.TabIndex = 0;
             panel3.Paint += panel3_Paint;
             // 
@@ -308,20 +323,21 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(833, 0);
+            label1.Location = new Point(729, 0);
             label1.Name = "label1";
-            label1.Size = new Size(259, 41);
+            label1.Size = new Size(211, 32);
             label1.TabIndex = 0;
             label1.Text = "Додати нову гру";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(1127, 676);
+            ClientSize = new Size(986, 507);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             Text = "MainForm";
             panel1.ResumeLayout(false);
@@ -339,7 +355,7 @@
 
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button btnLibrary;
+        private Button btnAddGame;
         private Button btnProfile;
         private Button btnNews;
         private Button btnReview;

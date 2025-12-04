@@ -22,20 +22,10 @@ namespace GamesView.Forms
             _currentUser = user;
             _userService = userService;
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void btnAddGame_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            var addgame = new FormAddGame(_userService, _currentUser);
+            FormNavigator.Switch(this, addgame);
         }
 
         private void btnLibrary_Click(object sender, EventArgs e)
@@ -58,14 +48,27 @@ namespace GamesView.Forms
 
         private void btnNews_Click(object sender, EventArgs e)
         {
-            var addNews = new FormAddNews(_userService, _currentUser);
-            FormNavigator.Switch(this, addNews);
+
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
             var profile = new ProfileForm(_userService, _currentUser);
             FormNavigator.Switch(this, profile);
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

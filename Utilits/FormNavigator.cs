@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GamesView.Utilits
 {
@@ -16,7 +13,20 @@ namespace GamesView.Utilits
             next.WindowState = current.WindowState;
 
             next.Show();
-            current.Hide();
+            current.Close();
+        }
+
+        public static void OpenAsDialog(Form current, Form next)
+        {
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = current.Location;
+            next.Size = current.Size;
+
+            current.Enabled = false;
+            next.ShowDialog();
+            current.Enabled = true;
+
+            current.Activate();
         }
     }
 }

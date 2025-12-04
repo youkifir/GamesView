@@ -34,7 +34,7 @@
             btnNews = new Button();
             btnReview = new Button();
             btnFavorite = new Button();
-            btnLibrary = new Button();
+            btnAddGame = new Button();
             panel2 = new Panel();
             panel4 = new Panel();
             button2 = new Button();
@@ -76,7 +76,7 @@
             tableLayoutPanel1.Controls.Add(btnNews, 3, 0);
             tableLayoutPanel1.Controls.Add(btnReview, 2, 0);
             tableLayoutPanel1.Controls.Add(btnFavorite, 1, 0);
-            tableLayoutPanel1.Controls.Add(btnLibrary, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnAddGame, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -154,22 +154,22 @@
             btnFavorite.UseVisualStyleBackColor = true;
             btnFavorite.Click += btnFavorite_Click;
             // 
-            // btnLibrary
+            // btnAddGame
             // 
-            btnLibrary.Dock = DockStyle.Fill;
-            btnLibrary.FlatAppearance.BorderColor = Color.FromArgb(63, 81, 181);
-            btnLibrary.FlatAppearance.MouseOverBackColor = Color.Red;
-            btnLibrary.FlatStyle = FlatStyle.Flat;
-            btnLibrary.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnLibrary.ForeColor = Color.WhiteSmoke;
-            btnLibrary.Location = new Point(3, 2);
-            btnLibrary.Margin = new Padding(3, 2, 3, 2);
-            btnLibrary.Name = "btnLibrary";
-            btnLibrary.Size = new Size(246, 41);
-            btnLibrary.TabIndex = 0;
-            btnLibrary.Text = "Бібліотека";
-            btnLibrary.UseVisualStyleBackColor = true;
-            btnLibrary.Click += btnLibrary_Click;
+            btnAddGame.Dock = DockStyle.Fill;
+            btnAddGame.FlatAppearance.BorderColor = Color.FromArgb(63, 81, 181);
+            btnAddGame.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnAddGame.FlatStyle = FlatStyle.Flat;
+            btnAddGame.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnAddGame.ForeColor = Color.WhiteSmoke;
+            btnAddGame.Location = new Point(3, 2);
+            btnAddGame.Margin = new Padding(3, 2, 3, 2);
+            btnAddGame.Name = "btnAddGame";
+            btnAddGame.Size = new Size(246, 41);
+            btnAddGame.TabIndex = 0;
+            btnAddGame.Text = "Додати Гру";
+            btnAddGame.UseVisualStyleBackColor = true;
+            btnAddGame.Click += btnAddGame_Click;
             // 
             // panel2
             // 
@@ -332,7 +332,7 @@
         private Button btnNews;
         private Button btnReview;
         private Button btnFavorite;
-        private Button btnLibrary;
+        private Button btnAddGame;
         private Panel panel2;
         private Panel panel3;
         private Label label1;
