@@ -1,7 +1,8 @@
-﻿using GamesView.Models;
-using GamesView.Utilits;
-using GamesView.Data;
+﻿using GamesView.Data;
+using GamesView.Models;
 using GamesView.Services;
+using GamesView.Utilits;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,52 +100,114 @@ namespace GamesView.Forms
         {
             var panel = new Panel
             {
-                BackColor = Color.FromArgb(45, 45, 45),
+                BackColor = Color.FromArgb(35, 35, 35),
                 BorderStyle = BorderStyle.FixedSingle,
-                Size = new Size(300, 400),
-                Margin = new Padding(10, 10, 5, 10)
+                Size = new Size(260, 400),
+                Margin = new Padding(15)
             };
 
+            // ===== КАРТИНКА =====
             var picture = new PictureBox
             {
-                BorderStyle = BorderStyle.FixedSingle,
-                Location = new Point(0, 0),
-                Size = new Size(298, 250),
-                SizeMode = PictureBoxSizeMode.Zoom
+                Size = new Size(258, 250),
+                Location = new Point(1, 1),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BorderStyle = BorderStyle.FixedSingle
             };
-
             if (!string.IsNullOrEmpty(game.CoverPath) && File.Exists(game.CoverPath))
-            {
                 picture.Image = Image.FromFile(game.CoverPath);
-            }
 
+
+            // ===== НАЗВА =====
             var titleLabel = new Label
             {
-                AutoSize = true,
-                Font = new Font("Segoe UI", 12F, FontStyle.Bold),
-                ForeColor = Color.WhiteSmoke,
-                Location = new Point(3, 253),
-                Text = game.Title
+                AutoSize = false,
+                Text = game.Title,
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.White,
+                Location = new Point(10, 260),
+                Width = 230,
+                Height = 30
             };
 
+
+            // ===== ОПИС =====
             var descLabel = new Label
             {
-                AutoSize = true,
-                Font = new Font("Segoe UI", 10F),
-                ForeColor = Color.Gray,
-                Location = new Point(1, 281),
-                MaximumSize = new Size(280, 0),
-                Text = string.IsNullOrWhiteSpace(game.Description)
-                        ? "Опис відсутній."
-                        : game.Description
+                AutoSize = false,
+                Text = string.IsNullOrWhiteSpace(game.Description) ? "Опис відсутній." : game.Description,
+                Font = new Font("Segoe UI", 9),
+                ForeColor = Color.Silver,
+                Location = new Point(10, 290),
+                Width = 240,
+                Height = 60
             };
 
-            panel.Controls.Add(descLabel);
-            panel.Controls.Add(titleLabel);
+
+            // ===== КНОПКА “–” ВНИЗУ =====
+            var removeButton = new Button
+            {
+                Text = "–",
+                Font = new Font("Segoe UI", 18, FontStyle.Bold),
+                Size = new Size(40, 40),
+                BackColor = Color.FromArgb(200, 50, 50),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Tag = game.GameId,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            removeButton.FlatAppearance.BorderSize = 0;
+
+            // Позиція кнопки знизу справа
+            removeButton.Location = new Point(
+                panel.Width - removeButton.Width - 10,   // 10 px від правого краю
+                panel.Height - removeButton.Height - 10  // 10 px з нижнього
+            );
+
+
+            // Hover ефект
+            removeButton.MouseEnter += (s, e) =>
+            {
+                removeButton.BackColor = Color.FromArgb(255, 80, 80);
+            };
+            removeButton.MouseLeave += (s, e) =>
+            {
+                removeButton.BackColor = Color.FromArgb(200, 50, 50);
+            };
+
+            removeButton.Click += RemoveFavorite_Click;
+
+
+            // Додаємо елементи
             panel.Controls.Add(picture);
+            panel.Controls.Add(titleLabel);
+            panel.Controls.Add(descLabel);
+            panel.Controls.Add(removeButton);
 
             return panel;
         }
+        private async void RemoveFavorite_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            int gameId = (int)btn.Tag;
+
+            var fav = await _context.Favorites
+                .FirstOrDefaultAsync(f => f.UserId == _currentUser.UserId && f.GameId == gameId);
+
+            if (fav != null)
+            {
+                _context.Favorites.Remove(fav);
+                await _context.SaveChangesAsync();
+
+                MessageBox.Show("Гру видалено з улюблених.",
+                    "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Перезавантажуємо список
+            await LoadFavoritesAsync();
+        }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
