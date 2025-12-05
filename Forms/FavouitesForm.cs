@@ -25,6 +25,7 @@ namespace GamesView.Forms
         private readonly FavoritesService _favoritesService;
         public FavouitesForm(UserService userService, User user)
         {
+            
             InitializeComponent();
             _userService = userService;
             _currentUser = user;

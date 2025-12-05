@@ -15,6 +15,7 @@ namespace GamesView.Forms
 {
     public partial class FormAddGame : Form
     {
+
         private readonly User _currentUser;
         private readonly UserService _userService;
         private readonly GameService _gameService;

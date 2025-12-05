@@ -11,7 +11,7 @@ namespace GamesView
         public FormLogin(UserService userService)
         {
             InitializeComponent();
-
+           
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
 
             btnLog.Click += BtnLog_Click;

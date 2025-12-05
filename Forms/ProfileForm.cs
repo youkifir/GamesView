@@ -28,7 +28,7 @@ namespace GamesView.Forms
             _currentUser = user;
             _context = new AppDbContext();
             _favoritesService = new FavoritesService(_context);
-            
+
 
             this.Load += ProfileForm_Load;
 
@@ -38,7 +38,7 @@ namespace GamesView.Forms
         {
 
 
-        labelUsername.Text = _currentUser.Login;
+            labelUsername.Text = _currentUser.Login;
             labelEmail.Text = _currentUser.Email;
 
             // Дата реєстрації
@@ -120,9 +120,14 @@ namespace GamesView.Forms
         {
 
         }
-       
+
 
         private void panelAccountInfo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

@@ -16,6 +16,7 @@ namespace GamesView.Forms
 
         public FormRegister(UserService userService)
         {
+            
             InitializeComponent();
             _userService = userService;
         }

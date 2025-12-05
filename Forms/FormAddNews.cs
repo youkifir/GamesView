@@ -22,6 +22,7 @@ namespace GamesView.Forms
         private readonly UserService _userService;
         public FormAddNews(UserService userService, User user)
         {
+            
             InitializeComponent();
             _currentUser = user;
             _userService = userService;
@@ -278,6 +279,11 @@ namespace GamesView.Forms
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormAddNews_Load(object sender, EventArgs e)
         {
 
         }

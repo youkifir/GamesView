@@ -25,38 +25,13 @@ namespace GamesView.Forms
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
-
+            
             _context = new AppDbContext();
             _newsService = new NewsService(_context);
 
             LoadNewsAsync();
         }
-        private List<News> GetStaticNews()
-        {
-            return new List<News>
-    {
-        new News
-        {
-            Title = "Нова оновлена версія для Counter-Strike 2 — «Операція: Нова Зоря»",
-            Content = "Розробники Counter-Strike 2 анонсували нову операцію «Операція: Нова Зоря», яка додає гру футуристичні мапи, новий режим командного виживання, нові скіни та розширені можливості тактичного бою.",
-            ImageUrl = @"C:\Users\user\Desktop\gamesw\Resources\covers\cs2.jpg"
-        },
-
-        new News
-        {
-            Title = "Велике оновлення для Rust — «Ера виживання»",
-            Content = "Розробники Rust оголосили про вихід нового масштабного оновлення під назвою «Ера виживання», яке суттєво змінює геймплей. У грі з’являться нові біоми, нові тварини, розширені можливості будівництва та покращена система погоди.",
-            ImageUrl = @"C:\Users\user\Desktop\gamesw\Resources\covers\rust.jpg"
-        },
-
-        new News
-        {
-            Title = "Новий сезон у PUBG — «Битва за острови»",
-            Content = "PUBG отримує новий сезон із тропічними островами, новою зброєю, розширеною системою нагород та спеціальними подіями. Розробники обіцяють більше динаміки та унікальних бойових ситуацій.",
-            ImageUrl = @"C:\Users\user\Desktop\gamesw\Resources\covers\pubg.jpg"
-        }
-    };
-        }
+        
         private async void LoadNewsAsync()
         {
             flowNews.Controls.Clear();

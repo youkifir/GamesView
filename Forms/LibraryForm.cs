@@ -26,7 +26,7 @@ namespace GamesView.Forms
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
-
+            
 
             _context = new AppDbContext();
             _favoritesService = new FavoritesService(_context);

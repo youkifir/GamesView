@@ -314,6 +314,7 @@
             Controls.Add(panel1);
             Name = "FormAddNews";
             Text = "FormAddNews";
+            Load += FormAddNews_Load;
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

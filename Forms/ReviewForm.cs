@@ -18,6 +18,7 @@ namespace GamesView.Forms
         private readonly User _currentUser;
         public ReviewForm(UserService userService, User user)
         {
+
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
@@ -56,6 +57,26 @@ namespace GamesView.Forms
         {
             var review = new ReviewForm(_userService, _currentUser);
             FormNavigator.Switch(this, review);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel15_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
