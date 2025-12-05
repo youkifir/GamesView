@@ -37,6 +37,7 @@
             btnReview = new Button();
             btnLibrary = new Button();
             panel2 = new Panel();
+            flowNews = new FlowLayoutPanel();
             panel5 = new Panel();
             label5 = new Label();
             label6 = new Label();
@@ -49,10 +50,6 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            panel6 = new Panel();
-            label7 = new Label();
-            label8 = new Label();
-            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -62,8 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -179,7 +174,7 @@
             // panel2
             // 
             panel2.AutoScroll = true;
-            panel2.Controls.Add(panel6);
+            panel2.Controls.Add(flowNews);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
@@ -190,6 +185,20 @@
             panel2.Padding = new Padding(10);
             panel2.Size = new Size(1253, 958);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
+            // 
+            // flowNews
+            // 
+            flowNews.AutoScroll = true;
+            flowNews.BackColor = Color.FromArgb(30, 30, 30);
+            flowNews.Dock = DockStyle.Bottom;
+            flowNews.FlowDirection = FlowDirection.TopDown;
+            flowNews.Location = new Point(10, 731);
+            flowNews.Margin = new Padding(0);
+            flowNews.Name = "flowNews";
+            flowNews.Size = new Size(1233, 217);
+            flowNews.TabIndex = 3;
+            flowNews.WrapContents = false;
             // 
             // panel5
             // 
@@ -329,52 +338,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panel6
-            // 
-            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel6.BackColor = Color.FromArgb(45, 45, 45);
-            panel6.Controls.Add(label7);
-            panel6.Controls.Add(label8);
-            panel6.Controls.Add(pictureBox4);
-            panel6.Location = new Point(10, 726);
-            panel6.Margin = new Padding(5);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(1233, 217);
-            panel6.TabIndex = 3;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(224, 224, 224);
-            label7.Location = new Point(247, 53);
-            label7.Name = "label7";
-            label7.Size = new Size(1770, 80);
-            label7.TabIndex = 2;
-            label7.Text = resources.GetString("label7.Text");
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(247, 9);
-            label8.Name = "label8";
-            label8.Size = new Size(584, 28);
-            label8.TabIndex = 1;
-            label8.Text = "Нове оновлення для Dead by Daylight — «Тінь минулого»";
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Dock = DockStyle.Left;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(0, 0);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(241, 217);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 0;
-            pictureBox4.TabStop = false;
-            // 
             // FormNews
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -398,9 +361,6 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -426,9 +386,6 @@
         private Label label5;
         private Label label6;
         private PictureBox pictureBox3;
-        private Panel panel6;
-        private Label label7;
-        private Label label8;
-        private PictureBox pictureBox4;
+        private FlowLayoutPanel flowNews;
     }
 }
