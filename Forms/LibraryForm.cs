@@ -18,100 +18,193 @@ namespace GamesView.Forms
     {
         private readonly UserService _userService;
         private readonly User _currentUser;
-
         private readonly AppDbContext _context;
         private readonly FavoritesService _favoritesService;
+        private readonly GameService _gameService;
         public LibraryForm(UserService userService, User user)
         {
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
 
+
             _context = new AppDbContext();
             _favoritesService = new FavoritesService(_context);
+            _gameService = new GameService(_context);
+            LoadGamesFromDatabase();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-        private async Task AddGameToFavorites(string gameTitle)
+        private async void LoadGamesFromDatabase()
         {
             try
             {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == gameTitle);
+                var allGames = await _gameService.GetGamesAsync();
 
-                if (game == null)
-                {
-                    MessageBox.Show($"Гру \"{gameTitle}\" не знайдено у базі.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Если в БД нет игр - ничего не делаем, остаются заглушки
+                if (!allGames.Any())
                     return;
-                }
 
-                var result = await _favoritesService.AddToFavoritesAsync(
-                    _currentUser.UserId, game.GameId);
+                // Группируем по жанрам
+                var singleGames = allGames.Where(g => g.Genre == "Одиночна гра").ToList();
+                var horrorGames = allGames.Where(g => g.Genre == "Хоррор").ToList();
+                var interactiveGames = allGames.Where(g => g.Genre == "Інтерактивне кіно").ToList();
 
-                MessageBox.Show(
-                    result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
+                // Добавляем игры из БД в соответствующие FlowLayoutPanel
+                AddDatabaseGamesToFlowPanel(singleGames, flowSingleGame);
+                AddDatabaseGamesToFlowPanel(horrorGames, flowHorrorGame);
+                AddDatabaseGamesToFlowPanel(interactiveGames, flowInteractiveFilm);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Помилка: {ex.Message}");
+                MessageBox.Show($"Помилка завантаження ігор: {ex.Message}");
             }
         }
-        private async void BtnAddToFav_Click(object sender, EventArgs e)
+        private void AddDatabaseGamesToFlowPanel(List<Game> games, FlowLayoutPanel flowPanel)
         {
-            var btn = sender as Button;
-            string gameTitle = btn.Tag.ToString();
-
-            await AddGameToFavorites(gameTitle);
+            foreach (var game in games)
+            {
+                // Проверяем, нет ли уже этой игры среди заглушек
+                if (!IsGameAlreadyInFlowPanel(flowPanel, game.Title))
+                {
+                    // Создаем панель для игры с ТВОИМИ размерами
+                    var gamePanel = CreateGamePanel(game);
+                    flowPanel.Controls.Add(gamePanel);
+                }
+            }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private bool IsGameAlreadyInFlowPanel(FlowLayoutPanel flowPanel, string gameTitle)
         {
+            foreach (Control control in flowPanel.Controls)
+            {
+                if (control is Panel panel)
+                {
+                    foreach (Control child in panel.Controls)
+                    {
+                        if (child is Label label && label.Text == gameTitle)
+                        {
+                            return true; // Игра уже есть
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        private Panel CreateGamePanel(Game game)
+        {
+            var panel = new Panel
+            {
+                BackColor = Color.FromArgb(35, 35, 35),
+                BorderStyle = BorderStyle.FixedSingle,
+                Size = new Size(260, 400),
+                Margin = new Padding(15),
+                Tag = game.GameId
+            };
+
+            // ===== КАРТИНКА =====
+            var picture = new PictureBox
+            {
+                Size = new Size(258, 250),
+                Location = new Point(1, 1),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
             try
             {
-                // 1. Знаходимо гру по назві з бібліотеки
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Marvel's Spider-Man 2");
-
-                if (game == null)
+                if (!string.IsNullOrEmpty(game.CoverPath))
                 {
-                    MessageBox.Show(
-                        "Гру \"Marvel's Spider-Man 2\" не знайдено в базі даних.",
-                        "Помилка",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return;
+                    string fullPath = Path.Combine(Application.StartupPath, "GameImages", game.CoverPath);
+
+                    if (File.Exists(fullPath))
+                        picture.Image = Image.FromFile(fullPath);
                 }
-
-                // 2. Додаємо в улюблені
-                var result = await _favoritesService.AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(
-                    result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(
-                    $"Сталася помилка при додаванні у \"Улюблені\": {ex.Message}",
-                    "Помилка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                picture.BackColor = Color.Gray;
             }
+
+            // ===== НАЗВА =====
+            var titleLabel = new Label
+            {
+                AutoSize = false,
+                Text = game.Title,
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.White,
+                Location = new Point(10, 260),
+                Width = 230,
+                Height = 30
+            };
+
+            // ===== ОПИС =====
+            var descLabel = new Label
+            {
+                AutoSize = false,
+                Text = string.IsNullOrWhiteSpace(game.Description) ? "Опис відсутній." : game.Description,
+                Font = new Font("Segoe UI", 9),
+                ForeColor = Color.Silver,
+                Location = new Point(10, 290),
+                Width = 240,
+                Height = 60
+            };
+
+            // ===== КНОПКА "+" =====
+            var favButton = new Button
+            {
+                Text = "+",
+                Font = new Font("Segoe UI", 18, FontStyle.Bold),
+                Size = new Size(40, 40),
+                BackColor = Color.FromArgb(63, 81, 181),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Tag = game.GameId
+            };
+
+            favButton.FlatAppearance.BorderSize = 0;
+
+            favButton.Location = new Point(
+                panel.Width - favButton.Width - 10,
+                panel.Height - favButton.Height - 10
+            );
+
+            favButton.MouseEnter += (s, e) =>
+            {
+                favButton.BackColor = Color.FromArgb(90, 110, 230);
+            };
+            favButton.MouseLeave += (s, e) =>
+            {
+                favButton.BackColor = Color.FromArgb(63, 81, 181);
+            };
+
+            favButton.Click += async (s, e) =>
+            {
+                var btn = s as Button;
+                int gameId = (int)btn.Tag;
+
+                var result = await _favoritesService.AddToFavoritesAsync(_currentUser.UserId, gameId);
+
+                if (result.success)
+                {
+                    btn.Text = "✓";
+                    btn.BackColor = Color.Green;
+                    btn.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show(result.message);
+                }
+            };
+
+            // Добавляем элементы
+            panel.Controls.Add(picture);
+            panel.Controls.Add(titleLabel);
+            panel.Controls.Add(descLabel);
+            panel.Controls.Add(favButton);
+
+            return panel;
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -146,482 +239,6 @@ namespace GamesView.Forms
         {
             var review = new ReviewForm(_userService, _currentUser);
             FormNavigator.Switch(this, review);
-        }
-
-        private void panel23_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private async void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Hogwarts Legacy");
-
-                if (game == null)
-                {
-                    MessageBox.Show(
-                        "Гру \"Hogwarts Legacy\" не знайдено в базі даних.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService.AddToFavoritesAsync(
-                    _currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Cyberpunk 2077");
-
-                if (game == null)
-                {
-                    MessageBox.Show(
-                        "Гру \"Cyberpunk 2077\" не знайдено в базі даних.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService.AddToFavoritesAsync(
-                    _currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Red Dead Redemption 2");
-
-                if (game == null)
-                {
-                    MessageBox.Show(
-                        "Гру \"Red Dead Redemption 2\" не знайдено в базі даних.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService.AddToFavoritesAsync(
-                    _currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "The Last of Us Part I");
-
-                if (game == null)
-                {
-                    MessageBox.Show(
-                        "Гру \"The Last of Us Part I\" не знайдено в базі.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService.AddToFavoritesAsync(
-                    _currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button6_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Hollow Knight");
-
-                if (game == null)
-                {
-                    MessageBox.Show(
-                        "Гру \"Hollow Knight\" не знайдено в базі.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService.AddToFavoritesAsync(
-                    _currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button7_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Silent Hill 2");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Silent Hill 2\" не знайдено.", "Помилка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button8_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "The Outlast Trials");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"The Outlast Trials\" не знайдено.", "Помилка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button9_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Phasmophobia");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Phasmophobia\" не знайдено.", "Помилка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button10_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Little Nightmares II");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Little Nightmares II\" не знайдено.", "Помилка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button11_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Метро 2033");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Метро 2033\" не знайдено.", "Помилка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button12_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Alien: Isolation");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Alien: Isolation\" не знайдено.", "Помилка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button13_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Detroit: Become Human");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Detroit: Become Human\" не знайдено.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button14_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "No, I’m not a Human");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"No, I'm not a Human\" не знайдено.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-
-        private async void button15_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Heavy Rain");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Heavy Rain\" не знайдено.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button16_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Life is Strange");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Life is Strange\" не знайдено.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button17_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "Beyond: Two Souls");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"Beyond: Two Souls\" не знайдено.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-        private async void button18_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var game = await _context.Games
-                    .FirstOrDefaultAsync(g => g.Title == "The Quarry");
-
-                if (game == null)
-                {
-                    MessageBox.Show("Гру \"The Quarry\" не знайдено.",
-                        "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var result = await _favoritesService
-                    .AddToFavoritesAsync(_currentUser.UserId, game.GameId);
-
-                MessageBox.Show(result.message,
-                    result.success ? "Успіх" : "Помилка",
-                    MessageBoxButtons.OK,
-                    result.success ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Помилка: {ex.Message}");
-            }
-        }
-
-        private void panel16_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

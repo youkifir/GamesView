@@ -37,22 +37,22 @@
             btnAddGame = new Button();
             panel2 = new Panel();
             panel4 = new Panel();
-            button2 = new Button();
-            textBox2 = new TextBox();
+            btnAdd = new Button();
+            tbDescribe = new TextBox();
             label4 = new Label();
-            comboBox1 = new ComboBox();
+            cbCategory = new ComboBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            tbGameName = new TextBox();
             label2 = new Label();
-            button1 = new Button();
-            pictureBox1 = new PictureBox();
+            btnChooseImage = new Button();
+            pbImage = new PictureBox();
             panel3 = new Panel();
             label1 = new Label();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbImage).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(986, 45);
+            panel1.Size = new Size(1152, 45);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -85,7 +85,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(986, 45);
+            tableLayoutPanel1.Size = new Size(1152, 45);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnProfile
@@ -96,10 +96,10 @@
             btnProfile.FlatStyle = FlatStyle.Flat;
             btnProfile.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnProfile.ForeColor = Color.WhiteSmoke;
-            btnProfile.Location = new Point(791, 2);
+            btnProfile.Location = new Point(923, 2);
             btnProfile.Margin = new Padding(3, 2, 3, 2);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(192, 41);
+            btnProfile.Size = new Size(226, 41);
             btnProfile.TabIndex = 4;
             btnProfile.Text = "Профіль";
             btnProfile.UseVisualStyleBackColor = true;
@@ -113,10 +113,10 @@
             btnNews.FlatStyle = FlatStyle.Flat;
             btnNews.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnNews.ForeColor = Color.WhiteSmoke;
-            btnNews.Location = new Point(594, 2);
+            btnNews.Location = new Point(693, 2);
             btnNews.Margin = new Padding(3, 2, 3, 2);
             btnNews.Name = "btnNews";
-            btnNews.Size = new Size(191, 41);
+            btnNews.Size = new Size(224, 41);
             btnNews.TabIndex = 3;
             btnNews.Text = "Додати новини";
             btnNews.UseVisualStyleBackColor = true;
@@ -130,10 +130,10 @@
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnReview.ForeColor = Color.WhiteSmoke;
-            btnReview.Location = new Point(397, 2);
+            btnReview.Location = new Point(463, 2);
             btnReview.Margin = new Padding(3, 2, 3, 2);
             btnReview.Name = "btnReview";
-            btnReview.Size = new Size(191, 41);
+            btnReview.Size = new Size(224, 41);
             btnReview.TabIndex = 2;
             btnReview.Text = "Відгуки";
             btnReview.UseVisualStyleBackColor = true;
@@ -147,10 +147,10 @@
             btnFavorite.FlatStyle = FlatStyle.Flat;
             btnFavorite.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnFavorite.ForeColor = Color.WhiteSmoke;
-            btnFavorite.Location = new Point(200, 2);
+            btnFavorite.Location = new Point(233, 2);
             btnFavorite.Margin = new Padding(3, 2, 3, 2);
             btnFavorite.Name = "btnFavorite";
-            btnFavorite.Size = new Size(191, 41);
+            btnFavorite.Size = new Size(224, 41);
             btnFavorite.TabIndex = 1;
             btnFavorite.Text = "Улюблені ігри";
             btnFavorite.UseVisualStyleBackColor = true;
@@ -167,7 +167,7 @@
             btnAddGame.Location = new Point(3, 2);
             btnAddGame.Margin = new Padding(3, 2, 3, 2);
             btnAddGame.Name = "btnAddGame";
-            btnAddGame.Size = new Size(191, 41);
+            btnAddGame.Size = new Size(224, 41);
             btnAddGame.TabIndex = 0;
             btnAddGame.Text = "Додати Гру";
             btnAddGame.UseVisualStyleBackColor = true;
@@ -182,51 +182,52 @@
             panel2.Margin = new Padding(9, 8, 9, 8);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(14, 12, 14, 12);
-            panel2.Size = new Size(986, 462);
+            panel2.Size = new Size(1152, 592);
             panel2.TabIndex = 1;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(45, 45, 45);
-            panel4.Controls.Add(button2);
-            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(btnAdd);
+            panel4.Controls.Add(tbDescribe);
             panel4.Controls.Add(label4);
-            panel4.Controls.Add(comboBox1);
+            panel4.Controls.Add(cbCategory);
             panel4.Controls.Add(label3);
-            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(tbGameName);
             panel4.Controls.Add(label2);
-            panel4.Controls.Add(button1);
-            panel4.Controls.Add(pictureBox1);
+            panel4.Controls.Add(btnChooseImage);
+            panel4.Controls.Add(pbImage);
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(14, 50);
             panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(958, 400);
+            panel4.Size = new Size(1124, 530);
             panel4.TabIndex = 1;
             // 
-            // button2
+            // btnAdd
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.Lime;
-            button2.Cursor = Cursors.Hand;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(800, 182);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(144, 29);
-            button2.TabIndex = 10;
-            button2.Text = "Додати гру";
-            button2.UseVisualStyleBackColor = false;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.BackColor = Color.Lime;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.Location = new Point(966, 182);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(144, 29);
+            btnAdd.TabIndex = 10;
+            btnAdd.Text = "Додати гру";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // textBox2
+            // tbDescribe
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(475, 147);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(469, 23);
-            textBox2.TabIndex = 7;
+            tbDescribe.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbDescribe.Location = new Point(475, 147);
+            tbDescribe.Margin = new Padding(3, 2, 3, 2);
+            tbDescribe.Name = "tbDescribe";
+            tbDescribe.Size = new Size(635, 23);
+            tbDescribe.TabIndex = 7;
             // 
             // label4
             // 
@@ -240,16 +241,16 @@
             label4.TabIndex = 6;
             label4.Text = "Опис гри :";
             // 
-            // comboBox1
+            // cbCategory
             // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Хоррор", "Одиночна гра", "Інтерактивне кіно" });
-            comboBox1.Location = new Point(475, 91);
-            comboBox1.Margin = new Padding(3, 2, 3, 2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(469, 23);
-            comboBox1.TabIndex = 5;
+            cbCategory.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbCategory.FormattingEnabled = true;
+            cbCategory.Items.AddRange(new object[] { "Хоррор", "Одиночна гра", "Інтерактивне кіно" });
+            cbCategory.Location = new Point(475, 91);
+            cbCategory.Margin = new Padding(3, 2, 3, 2);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(635, 23);
+            cbCategory.TabIndex = 5;
             // 
             // label3
             // 
@@ -263,14 +264,14 @@
             label3.TabIndex = 4;
             label3.Text = "Категорія :";
             // 
-            // textBox1
+            // tbGameName
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(475, 40);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(469, 23);
-            textBox1.TabIndex = 3;
+            tbGameName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbGameName.Location = new Point(475, 40);
+            tbGameName.Margin = new Padding(3, 2, 3, 2);
+            tbGameName.Name = "tbGameName";
+            tbGameName.Size = new Size(635, 23);
+            tbGameName.TabIndex = 3;
             // 
             // label2
             // 
@@ -283,28 +284,28 @@
             label2.Size = new Size(88, 20);
             label2.TabIndex = 2;
             label2.Text = "Назва гри :";
-            label2.Click += label2_Click;
             // 
-            // button1
+            // btnChooseImage
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(3, 4);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(353, 26);
-            button1.TabIndex = 1;
-            button1.Text = "Обрати фото";
-            button1.UseVisualStyleBackColor = true;
+            btnChooseImage.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnChooseImage.Location = new Point(3, 4);
+            btnChooseImage.Margin = new Padding(3, 2, 3, 2);
+            btnChooseImage.Name = "btnChooseImage";
+            btnChooseImage.Size = new Size(353, 26);
+            btnChooseImage.TabIndex = 1;
+            btnChooseImage.Text = "Обрати фото";
+            btnChooseImage.UseVisualStyleBackColor = true;
+            btnChooseImage.Click += btnChooseImage_Click;
             // 
-            // pictureBox1
+            // pbImage
             // 
-            pictureBox1.BackColor = Color.FromArgb(50, 50, 50);
-            pictureBox1.Location = new Point(3, 40);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(353, 337);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbImage.BackColor = Color.FromArgb(50, 50, 50);
+            pbImage.Location = new Point(3, 40);
+            pbImage.Margin = new Padding(3, 2, 3, 2);
+            pbImage.Name = "pbImage";
+            pbImage.Size = new Size(353, 337);
+            pbImage.TabIndex = 0;
+            pbImage.TabStop = false;
             // 
             // panel3
             // 
@@ -313,9 +314,8 @@
             panel3.Location = new Point(14, 12);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(958, 38);
+            panel3.Size = new Size(1124, 38);
             panel3.TabIndex = 0;
-            panel3.Paint += panel3_Paint;
             // 
             // label1
             // 
@@ -329,23 +329,23 @@
             label1.TabIndex = 0;
             label1.Text = "Додати нову гру";
             // 
-            // MainForm
+            // FormAddGame
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(986, 507);
+            ClientSize = new Size(1152, 637);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "MainForm";
+            Name = "FormAddGame";
             Text = "MainForm";
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -364,14 +364,14 @@
         private Panel panel3;
         private Label label1;
         private Panel panel4;
-        private PictureBox pictureBox1;
-        private Button button1;
+        private PictureBox pbImage;
+        private Button btnChooseImage;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox tbDescribe;
         private Label label4;
-        private ComboBox comboBox1;
+        private ComboBox cbCategory;
         private Label label3;
-        private TextBox textBox1;
-        private Button button2;
+        private TextBox tbGameName;
+        private Button btnAdd;
     }
 }

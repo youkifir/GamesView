@@ -37,25 +37,13 @@ namespace GamesView.Forms
         private async void InitAsync()
         {
             try
-            {
-                
+            {   
                 await LoadFavoritesAsync();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Помилка ініціалізації: {ex.Message}");
             }
-        }
-        protected override async void OnFormClosing(FormClosingEventArgs e)
-        {
-            using (var ctx = new AppDbContext())
-            {
-                var fav = ctx.Favorites.Where(f => f.UserId == _currentUser.UserId);
-                ctx.Favorites.RemoveRange(fav);
-                await ctx.SaveChangesAsync();
-            }
-
-            base.OnFormClosing(e);
         }
         private async Task LoadFavoritesAsync()
         {
@@ -114,8 +102,30 @@ namespace GamesView.Forms
                 SizeMode = PictureBoxSizeMode.Zoom,
                 BorderStyle = BorderStyle.FixedSingle
             };
-            if (!string.IsNullOrEmpty(game.CoverPath) && File.Exists(game.CoverPath))
-                picture.Image = Image.FromFile(game.CoverPath);
+            try
+            {
+                if (!string.IsNullOrEmpty(game.CoverPath))
+                {
+                    string fullPath = Path.Combine(Application.StartupPath, "GameImages", game.CoverPath);
+
+                    if (File.Exists(fullPath))
+                    {
+                        picture.Image = Image.FromFile(fullPath);
+                    }
+                    else
+                    {
+                        picture.BackColor = Color.Gray;
+                    }
+                }
+                else
+                {
+                    picture.BackColor = Color.Gray;
+                }
+            }
+            catch
+            {
+                picture.BackColor = Color.Gray;
+            }
 
 
             // ===== НАЗВА =====
