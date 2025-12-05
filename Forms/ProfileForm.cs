@@ -1,6 +1,8 @@
 ﻿using GamesView.Models;
 using GamesView.Utilits;
 using System;
+using GamesView.Services;
+using GamesView.Data;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,8 @@ namespace GamesView.Forms
 {
     public partial class ProfileForm : Form
     {
+        private readonly FavoritesService _favoritesService;
+        private readonly AppDbContext _context;
         private readonly UserService _userService;
         private readonly User _currentUser;
         public ProfileForm(UserService userService, User user)
@@ -22,10 +26,28 @@ namespace GamesView.Forms
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
+            _context = new AppDbContext();
+            _favoritesService = new FavoritesService(_context);
+            
 
             this.Load += ProfileForm_Load;
 
             btnAdmin.Visible = UserService.IsAdmin(_currentUser);
+        }
+        private async void ProfileForm_Load(object sender, EventArgs e)
+        {
+
+
+        labelUsername.Text = _currentUser.Login;
+            labelEmail.Text = _currentUser.Email;
+
+            // Дата реєстрації
+            if (_currentUser.DateCreated != null)
+                label10.Text = $"Дата реєстрації: {_currentUser.DateCreated:dd.MM.yyyy}";
+
+            // Кількість улюблених ігор
+            int favCount = await _favoritesService.GetFavoritesCountAsync(_currentUser.UserId);
+            labelFavoriteCount.Text = $"Улюблених ігор: {favCount}";
         }
         private void btnAdmin_Click(object sender, EventArgs e)
         {
@@ -98,12 +120,11 @@ namespace GamesView.Forms
         {
 
         }
-        private void ProfileForm_Load(object sender, EventArgs e)
+       
+
+        private void panelAccountInfo_Paint(object sender, PaintEventArgs e)
         {
-            labelUsername.Text = _currentUser.Login;
-            labelEmail.Text = _currentUser.Email;
+
         }
-
-
     }
 }
