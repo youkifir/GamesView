@@ -31,14 +31,37 @@ namespace GamesView.Forms
 
             LoadNewsAsync();
         }
+        private List<News> GetStaticNews()
+        {
+            return new List<News>
+    {
+        new News
+        {
+            Title = "Нова оновлена версія для Counter-Strike 2 — «Операція: Нова Зоря»",
+            Content = "Розробники Counter-Strike 2 анонсували нову операцію «Операція: Нова Зоря», яка додає гру футуристичні мапи, новий режим командного виживання, нові скіни та розширені можливості тактичного бою.",
+            ImageUrl = @"C:\Users\user\Desktop\gamesw\Resources\covers\cs2.jpg"
+        },
+
+        new News
+        {
+            Title = "Велике оновлення для Rust — «Ера виживання»",
+            Content = "Розробники Rust оголосили про вихід нового масштабного оновлення під назвою «Ера виживання», яке суттєво змінює геймплей. У грі з’являться нові біоми, нові тварини, розширені можливості будівництва та покращена система погоди.",
+            ImageUrl = @"C:\Users\user\Desktop\gamesw\Resources\covers\rust.jpg"
+        },
+
+        new News
+        {
+            Title = "Новий сезон у PUBG — «Битва за острови»",
+            Content = "PUBG отримує новий сезон із тропічними островами, новою зброєю, розширеною системою нагород та спеціальними подіями. Розробники обіцяють більше динаміки та унікальних бойових ситуацій.",
+            ImageUrl = @"C:\Users\user\Desktop\gamesw\Resources\covers\pubg.jpg"
+        }
+    };
+        }
         private async void LoadNewsAsync()
         {
             flowNews.Controls.Clear();
 
             var newsList = await _newsService.GetAllNewsAsync();
-
-            // НЕ ХОВАЄМО panel2, ПРОСТО ЗАЛИШАЄМО ЇЇ
-            // НЕ МІНЯЄМО ВИСОТУ, НЕ ЧІПАЄМО НІЧОГО
 
             if (newsList != null && newsList.Count > 0)
             {
@@ -51,16 +74,15 @@ namespace GamesView.Forms
             Panel panel = new Panel
             {
                 BackColor = Color.FromArgb(45, 45, 45),
-                Size = new Size(flowNews.Width - 20, 199),   // <<< ФІКСОВАНА ВИСОТА ЯК У ІНШИХ
-                Margin = new Padding(0, 20, 0, 0),
-                BorderStyle = BorderStyle.None
+                Size = new Size(flowNews.Width - 25, 180),
+                Margin = new Padding(0, 20, 0, 0)
             };
 
             // ===== КАРТИНКА =====
             PictureBox img = new PictureBox
             {
-                Size = new Size(245, 138),
-                Location = new Point(10, 20),   // <<< РІВНО ЯК У ВЕРХНІХ НОВИН
+                Size = new Size(245, 138),        // як у твоїх статичних блоках
+                Location = new Point(10, 20),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
 
@@ -73,7 +95,7 @@ namespace GamesView.Forms
             Label title = new Label
             {
                 Text = news.Title,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold), // Як у твоїх верхніх
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
                 ForeColor = Color.White,
                 Location = new Point(280, 20),
                 MaximumSize = new Size(panel.Width - 330, 0),
@@ -85,8 +107,8 @@ namespace GamesView.Forms
             Label content = new Label
             {
                 Text = news.Content,
-                Font = new Font("Segoe UI", 9, FontStyle.Regular),
-                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 9),
+                ForeColor = Color.FromArgb(210, 210, 210),
                 Location = new Point(280, title.Bottom + 10),
                 MaximumSize = new Size(panel.Width - 330, 0),
                 AutoSize = true
@@ -95,6 +117,7 @@ namespace GamesView.Forms
 
             return panel;
         }
+
 
 
         private void FormNews_Load(object sender, EventArgs e)
