@@ -37,6 +37,7 @@
             btnAddGame = new Button();
             panel2 = new Panel();
             panel4 = new Panel();
+            flowGames = new FlowLayoutPanel();
             btnAdd = new Button();
             tbDescribe = new TextBox();
             label4 = new Label();
@@ -174,13 +175,14 @@
             panel2.Location = new Point(0, 60);
             panel2.Margin = new Padding(10, 11, 10, 11);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(16, 16, 16, 16);
+            panel2.Padding = new Padding(16);
             panel2.Size = new Size(1317, 789);
             panel2.TabIndex = 1;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(45, 45, 45);
+            panel4.Controls.Add(flowGames);
             panel4.Controls.Add(btnAdd);
             panel4.Controls.Add(tbDescribe);
             panel4.Controls.Add(label4);
@@ -195,6 +197,17 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1285, 706);
             panel4.TabIndex = 1;
+            panel4.Paint += panel4_Paint;
+            // 
+            // flowGames
+            // 
+            flowGames.AutoScroll = true;
+            flowGames.BackColor = Color.FromArgb(30, 30, 30);
+            flowGames.Dock = DockStyle.Bottom;
+            flowGames.Location = new Point(0, 466);
+            flowGames.Name = "flowGames";
+            flowGames.Size = new Size(1285, 240);
+            flowGames.TabIndex = 11;
             // 
             // btnAdd
             // 
@@ -357,5 +370,6 @@
         private Label label3;
         private TextBox tbGameName;
         private Button btnAdd;
+        private FlowLayoutPanel flowGames;
     }
 }

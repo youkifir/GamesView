@@ -212,11 +212,11 @@
             button2.Cursor = Cursors.Hand;
             button2.FlatAppearance.BorderSize = 0;
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(1246, 160);
+            button2.Location = new Point(1127, 160);
             button2.Name = "button2";
-            button2.Size = new Size(165, 39);
+            button2.Size = new Size(284, 39);
             button2.TabIndex = 11;
-            button2.Text = "Додати гру";
+            button2.Text = "Додати новину";
             button2.UseVisualStyleBackColor = false;
             button2.Click += btnAddNews_Click;
             // 

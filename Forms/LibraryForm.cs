@@ -26,7 +26,7 @@ namespace GamesView.Forms
             InitializeComponent();
             _userService = userService;
             _currentUser = user;
-            
+
 
             _context = new AppDbContext();
             _favoritesService = new FavoritesService(_context);
@@ -40,25 +40,54 @@ namespace GamesView.Forms
             {
                 var allGames = await _gameService.GetGamesAsync();
 
-                // Если в БД нет игр - ничего не делаем, остаются заглушки
-                if (!allGames.Any())
+                // Якщо ігор нема — прибираємо всі жанри
+                if (allGames == null || allGames.Count == 0)
+                {
+                    panelSingleGame.Visible = false;
+                    panelHorrorGame.Visible = false;
+                    panelInteractiveFilm.Visible = false;
                     return;
+                }
 
-                // Группируем по жанрам
-                var singleGames = allGames.Where(g => g.Genre == "Одиночна гра").ToList();
-                var horrorGames = allGames.Where(g => g.Genre == "Хоррор").ToList();
-                var interactiveGames = allGames.Where(g => g.Genre == "Інтерактивне кіно").ToList();
+                // Групуємо ігри за жанрами
+                var singleGames = allGames.Where(g => (g.Genre ?? "") == "Одиночна гра").ToList();
+                var horrorGames = allGames.Where(g => (g.Genre ?? "") == "Хоррор").ToList();
+                var interactiveGames = allGames.Where(g => (g.Genre ?? "") == "Інтерактивне кіно").ToList();
 
-                // Добавляем игры из БД в соответствующие FlowLayoutPanel
-                AddDatabaseGamesToFlowPanel(singleGames, flowSingleGame);
-                AddDatabaseGamesToFlowPanel(horrorGames, flowHorrorGame);
-                AddDatabaseGamesToFlowPanel(interactiveGames, flowInteractiveFilm);
+                // Очищаємо попередній контент
+                flowSingleGame.Controls.Clear();
+                flowHorrorGame.Controls.Clear();
+                flowInteractiveFilm.Controls.Clear();
+
+                // Додаємо ігри
+                AddGamesToCategory(singleGames, flowSingleGame, panelSingleGame);
+                AddGamesToCategory(horrorGames, flowHorrorGame, panelHorrorGame);
+                AddGamesToCategory(interactiveGames, flowInteractiveFilm, panelInteractiveFilm);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Помилка завантаження ігор: {ex.Message}");
             }
         }
+        private void AddGamesToCategory(List<Game> games, FlowLayoutPanel panel, Panel header)
+        {
+            if (games == null || games.Count == 0)
+            {
+                header.Visible = false;
+                panel.Visible = false;
+                return;
+            }
+
+            header.Visible = true;
+            panel.Visible = true;
+
+            foreach (var game in games)
+            {
+                var gamePanel = CreateGamePanel(game);
+                panel.Controls.Add(gamePanel);
+            }
+        }
+
         private void AddDatabaseGamesToFlowPanel(List<Game> games, FlowLayoutPanel flowPanel)
         {
             foreach (var game in games)
@@ -158,11 +187,14 @@ namespace GamesView.Forms
                 BackColor = Color.FromArgb(63, 81, 181),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Tag = game.GameId
+                Tag = game.GameId,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Padding = new Padding(0)
             };
 
             favButton.FlatAppearance.BorderSize = 0;
 
+            // позиція справа знизу (в панелі)
             favButton.Location = new Point(
                 panel.Width - favButton.Width - 10,
                 panel.Height - favButton.Height - 10
@@ -196,11 +228,13 @@ namespace GamesView.Forms
                 }
             };
 
-            // Добавляем элементы
+            // Додаємо на панель
             panel.Controls.Add(picture);
             panel.Controls.Add(titleLabel);
             panel.Controls.Add(descLabel);
             panel.Controls.Add(favButton);
+
+            panel.Controls.SetChildIndex(favButton, 0);
 
             return panel;
         }
@@ -239,6 +273,16 @@ namespace GamesView.Forms
         {
             var review = new ReviewForm(_userService, _currentUser);
             FormNavigator.Switch(this, review);
+        }
+
+        private void flowSingleGame_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelSingleGame_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

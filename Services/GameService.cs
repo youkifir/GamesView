@@ -100,13 +100,22 @@ namespace GamesView.Services
                 if (game == null)
                     return (false, "Гру не знайдено");
 
+                // 1️⃣ Видаляємо гру з улюблених (інакше буде FK помилка)
+                var favorites = _context.Favorites.Where(f => f.GameId == id);
+                _context.Favorites.RemoveRange(favorites);
+
+                // 2️⃣ Видаляємо відгуки, якщо вони є
+                var reviews = _context.Reviews.Where(r => r.GameId == id);
+                _context.Reviews.RemoveRange(reviews);
+
+                // 3️⃣ Видаляємо саму гру
                 _context.Games.Remove(game);
+
                 int result = await _context.SaveChangesAsync();
 
-                if (result > 0)
-                    return (true, "Гру успішно видалено");
-                else
-                    return (false, "Не вдалося видалити гру");
+                return result > 0
+                    ? (true, "Гру успішно видалено")
+                    : (false, "Не вдалося видалити гру");
             }
             catch (DbUpdateException ex)
             {
@@ -118,7 +127,6 @@ namespace GamesView.Services
                 return (false, $"Сталася помилка: {ex.Message}");
             }
         }
-
         // Поиск и фильтрация
         public async Task<List<Game>> SearchGamesAsync(string searchTerm)
         {
